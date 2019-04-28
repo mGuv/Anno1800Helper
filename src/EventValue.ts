@@ -10,9 +10,7 @@ class EventValue<TValue> {
 
     public setValue(value: TValue) {
         this.value = value;
-        console.log("triggered");
         this.callbacks.forEach((callback) => {
-            console.log("fire");
             callback(this.value);
         });
     }
@@ -22,7 +20,6 @@ class EventValue<TValue> {
     };
 
     public registerOnChange(callback: (value: TValue) => void): void {
-        console.log("bound");
         this.callbacks.push(callback);
     }
 
