@@ -1,0 +1,49 @@
+{
+  "name": "anno1800helper",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "fortawesome/react-fontawesome",
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.7",
+    "@types/node-sass": "^4.11.0",
+    "@types/react": "16.8.14",
+    "@types/react-click-outside": "^3.0.3",
+    "@types/react-dom": "16.8.4",
+    "@types/react-resize-detector": "^4.0.1",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.8.6",
+    "react-click-outside": "^3.0.1",
+    "react-dom": "^16.8.6",
+    "react-resize-detector": "^4.1.3",
+    "react-scripts": "3.0.0",
+    "typescript": "3.4.5"
+  },
+  "scripts": {
+    "start": "npm-run-all -p watch:css start:js",
+    "build:css": "node-sass src -o src --recursive --quiet",
+    "watch:css": "yarn build:css && node-sass src -o src --recursive --watch --quiet",
+    "start:js": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

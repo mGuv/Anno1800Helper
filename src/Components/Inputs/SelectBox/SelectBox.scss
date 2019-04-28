@@ -1,0 +1,37 @@
+@import "../../../variables.scss";
+
+.selectBox__container {
+    position: relative;
+    margin: 5px;
+    cursor: pointer;
+
+    .label__container {
+        padding: 10px; 
+        border-bottom: 1px solid;
+        &:hover {
+            font-weight: 600;
+            border-bottom: 1px solid yellow;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .options__container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .option {
+            padding: 10px;
+            background-color: $header-background-colour-highlight;
+
+            &:hover {
+                background-color: #636060;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import "../variables.scss";
+
+.header__container {
+    background-color: $header-background-colour;
+    color: $header-text-colour;
+    padding: $padding;    
+    
+    font-size: $font-size-large;
+
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.5);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+
+    .islandSelect {
+        grid-column: span 5;
+    }
+
+    .islandAdd {
+        grid-column: span 1;
+    }
+
+    .selectBox__container {
+        .label__container{
+            &:hover {
+                background-color: $header-background-colour-highlight;
+            }
+        }
+    }
+}
