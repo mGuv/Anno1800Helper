@@ -2,6 +2,7 @@ import Island from "./Island";
 import EventValue from "../../EventValue";
 import Dictionary from "../../Collections/Dictionary";
 import PopType from "../Population/PopType";
+import IslandType from "./IslandType";
 
 class IslandService {
 
@@ -10,49 +11,20 @@ class IslandService {
     public islands: EventValue<Island[]> = new EventValue([
         new Island(
             new EventValue("New Island"),
-            new Dictionary<PopType, number>(
+            IslandType.OldWorld,
+            new Dictionary<PopType, EventValue<number>>(
                 [
                     {
                         key: PopType.Worker,
-                        value: 0,
+                        value: new EventValue(0),
                     },
                     {
                         key: PopType.Farmer,
-                        value: 0,
+                        value: new EventValue(0),
                     }
                 ]
             )
-        ),
-        new Island(
-            new EventValue("Debug Island"),
-            new Dictionary<PopType, number>(
-                [
-                    {
-                        key: PopType.Worker,
-                        value: 0,
-                    },
-                    {
-                        key: PopType.Farmer,
-                        value: 0,
-                    }
-                ]
-            )
-        ),
-        new Island(
-            new EventValue("Another Island"),
-            new Dictionary<PopType, number>(
-                [
-                    {
-                        key: PopType.Worker,
-                        value: 0,
-                    },
-                    {
-                        key: PopType.Farmer,
-                        value: 0,
-                    }
-                ]
-            )
-        ),
+        )
     ]);
 
     public activeIsland: EventValue<Island> = new EventValue(this.islands.getValue()[0]);
