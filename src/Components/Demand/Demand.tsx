@@ -39,7 +39,7 @@ class Demand extends React.PureComponent<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <div>{this.state.island.name} - Demands</div>
+            <div>{this.state.island.name.getValue()} - Demands</div>
         );
     }
 }

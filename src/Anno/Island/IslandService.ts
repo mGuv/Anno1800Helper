@@ -9,7 +9,7 @@ class IslandService {
 
     public islands: EventValue<Island[]> = new EventValue([
         new Island(
-            "New Island",
+            new EventValue("New Island"),
             new Dictionary<PopType, number>(
                 [
                     {
@@ -24,7 +24,7 @@ class IslandService {
             )
         ),
         new Island(
-            "Debug Island",
+            new EventValue("Debug Island"),
             new Dictionary<PopType, number>(
                 [
                     {
@@ -39,7 +39,7 @@ class IslandService {
             )
         ),
         new Island(
-            "Another Island",
+            new EventValue("Another Island"),
             new Dictionary<PopType, number>(
                 [
                     {
