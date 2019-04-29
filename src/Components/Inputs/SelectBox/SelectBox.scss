@@ -19,7 +19,7 @@
     }
 
     .options__container {
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -27,6 +27,7 @@
         .option {
             padding: 10px;
             background-color: $header-background-colour-highlight;
+            box-sizing: border-box;
 
             &:hover {
                 background-color: #636060;

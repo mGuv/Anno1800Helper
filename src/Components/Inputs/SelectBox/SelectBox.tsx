@@ -4,6 +4,7 @@ import "./SelectBox.scss";
 import handleClickOutside from 'react-click-outside';
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactResizeDetector from 'react-resize-detector';
 
 interface Props<T> {
     value: EventValue<T>,
@@ -13,6 +14,7 @@ interface Props<T> {
 interface State<T> {
     currentValue: T,
     isOpen: boolean,
+    width: number,
 }
 
 class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
@@ -22,6 +24,7 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
         this.state = {
             currentValue: props.value.getValue(),
             isOpen: false,
+            width: 0,
         };
 
         this.props.value.registerOnChange(this.handleValueChanged);
@@ -62,6 +65,12 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
         });
     };
 
+    private setWidth = (width: number, height: Number) => {
+        this.setState({
+            width: width
+        });
+    }
+
     public render(): JSX.Element {
 
         if (!this.state.isOpen) {
@@ -77,14 +86,17 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
 
         return (
             <div className="selectBox__container">
-                <div className="label__container" onClick={this.close}>
-                    <span className="value">{this.state.currentValue.toString()}</span>
-                    <span className="icon"><FontAwesomeIcon icon={faChevronUp} /></span>
+                <div>
+                    <div className="label__container" onClick={this.close}>
+                        <span className="value">{this.state.currentValue.toString()}</span>
+                        <span className="icon"><FontAwesomeIcon icon={faChevronUp} /></span>
+                    </div>
+                    <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.setWidth} />
                 </div>
                 <div className="options__container">
                     {
                         this.props.options.map((value) => {
-                            return <div className="option" key={value.toString()} onClick={() => { this.select(value) }}>{value.toString()}</div>;
+                            return <div style={{ width: this.state.width }} className="option" key={value.toString()} onClick={() => { this.select(value) }}>{value.toString()}</div>;
                         })
                     }
                 </div>
