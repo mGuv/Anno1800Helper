@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
-    icon: IconProp
+    icon: IconProp;
+    onClick: () => void;
 }
 
 interface State {
@@ -20,10 +21,11 @@ class IconButton extends React.PureComponent<Props, State> {
         };
     }
 
-
     public render(): JSX.Element {
         return (
-            <FontAwesomeIcon icon={this.props.icon} />
+            <div className="iconButton__container" onClick={this.props.onClick}>
+                <FontAwesomeIcon icon={this.props.icon} />
+            </div>
         );
     }
 }

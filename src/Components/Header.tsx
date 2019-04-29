@@ -6,7 +6,8 @@ import Island from '../Anno/Island/Island';
 import IslandService from '../Anno/Island/IslandService';
 import "./Header.css";
 import SelectBox from './Inputs/SelectBox/SelectBox';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IconButton from './Inputs/IconButton/IconButton';
+import PopUp from './PopUp/PopUp';
 
 const islandService: IslandService = IslandService.Get();
 
@@ -19,6 +20,7 @@ interface State {
     height: number;
     island: Island;
     islands: Island[];
+    newIslandOpen: boolean;
 }
 
 class Header extends React.PureComponent<Props, State> {
@@ -40,6 +42,7 @@ class Header extends React.PureComponent<Props, State> {
             height: 0,
             island: islandService.activeIsland.getValue(),
             islands: islandService.islands.getValue(),
+            newIslandOpen: false,
         };
         this.ref = React.createRef<HTMLDivElement>();
     }
@@ -67,6 +70,18 @@ class Header extends React.PureComponent<Props, State> {
         })
     };
 
+    private openNewIsland = () => {
+        this.setState({
+            newIslandOpen: true
+        })
+    };
+    
+    private closeNewIsland = () => {
+        this.setState({
+            newIslandOpen: false
+        });
+    };
+
     private handleTabChange = (event: React.ChangeEvent<{}>, value: number) => {
         this.props.onTabSelected(value);
     };
@@ -90,12 +105,17 @@ class Header extends React.PureComponent<Props, State> {
                             <SelectBox options={this.state.islands} value={islandService.activeIsland} />
                         </div>
                         <div className="islandAdd">
-                            <FontAwesomeIcon icon={faPlus} />
+                            <IconButton icon={faPlus} onClick={this.openNewIsland}/>
                         </div>
                     </div>
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.growSpacer} />
                 </div>
                 <div style={{ width: "100%", height: this.state.height + "px" }}></div>
+                { 
+                    this.state.newIslandOpen && (
+                        <PopUp title="Add New Island" onClose={this.closeNewIsland}>Name: <input type="text"/></PopUp>
+                    )
+                }
             </React.Fragment>
         );
     }

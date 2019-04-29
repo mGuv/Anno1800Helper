@@ -1,0 +1,43 @@
+@import "../../variables";
+
+.popUp__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.3);
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .popUp__container {
+        margin-top: 200px;
+        overflow: auto;
+        background-color: $primary-background-color;
+        box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.3);
+        
+        display: flex;
+        flex-direction: column;
+
+        .popUp__header {
+            font-size: $font-size-large;
+            background-color: $header-background-colour;
+            color: $header-text-colour;
+            padding: $padding;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popUp__content {
+            padding: $padding;
+            flex: auto;
+        }
+
+        .popUp__footer {
+            margin: $padding;
+            border-top: 1px solid black;
+        }
+    }
+}
