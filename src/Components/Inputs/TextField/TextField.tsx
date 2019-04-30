@@ -5,6 +5,8 @@ import EventValue from "../../../EventValue";
 interface Props {
     name: string;
     value: EventValue<string>;
+    autoFocus?:boolean;
+    placeholder?:string;
 }
 
 interface State {
@@ -73,13 +75,16 @@ class TextField extends React.PureComponent<Props, State> {
             classes.push("textField__container--focused");
         }
 
+        const autoFocus:boolean = this.props.autoFocus || false;
+        const placeholder:string = this.props.placeholder || "";
+
         return (
             <div className={classes.join(" ")} onClick={this.onClick}>
                 <div className="label">
                     {this.props.name}: 
                 </div>
                 <div className="inputContainer">
-                    <input ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
+                    <input placeholder={placeholder} autoFocus={autoFocus} ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
                 </div>
             </div>
         );
