@@ -3,7 +3,7 @@ import "./TextField.scss";
 import EventValue from "../../../EventValue";
 
 interface Props {
-    name: string;
+    name?: string;
     value: EventValue<string>;
     autoFocus?:boolean;
     placeholder?:string;
@@ -77,12 +77,13 @@ class TextField extends React.PureComponent<Props, State> {
 
         const autoFocus:boolean = this.props.autoFocus || false;
         const placeholder:string = this.props.placeholder || "";
+        const name:string = this.props.name || "";
+
+        const labelElement:JSX.Element | null = name.length > 0 ? (<div className="label">{this.props.name}: </div>) : null;
 
         return (
             <div className={classes.join(" ")} onClick={this.onClick}>
-                <div className="label">
-                    {this.props.name}: 
-                </div>
+                {labelElement}
                 <div className="inputContainer">
                     <input placeholder={placeholder} autoFocus={autoFocus} ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
                 </div>
