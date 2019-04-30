@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import "./TextField.scss";
 import EventValue from "../../../EventValue";
 
@@ -13,6 +13,9 @@ interface State {
 }
 
 class TextField extends React.PureComponent<Props, State> {
+
+    private ref: RefObject<HTMLInputElement>;
+
     public constructor(props:Props) {
         super(props);
         this.state = {
@@ -21,6 +24,8 @@ class TextField extends React.PureComponent<Props, State> {
         };
 
         this.props.value.registerOnChange(this.handleValueChange);
+
+        this.ref = React.createRef<HTMLInputElement>();
     }
 
     public componentWillUnmount = () => {
@@ -52,6 +57,12 @@ class TextField extends React.PureComponent<Props, State> {
         });
     }
 
+    private onClick = () => {
+        if(this.ref.current) {
+            this.ref.current.focus();
+        }
+    };
+
     public render() : JSX.Element {
 
         const classes:string[] = [
@@ -63,12 +74,12 @@ class TextField extends React.PureComponent<Props, State> {
         }
 
         return (
-            <div className={classes.join(" ")}>
+            <div className={classes.join(" ")} onClick={this.onClick}>
                 <div className="label">
                     {this.props.name}: 
                 </div>
                 <div className="inputContainer">
-                    <input onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
+                    <input ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
                 </div>
             </div>
         );
