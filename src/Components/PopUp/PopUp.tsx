@@ -3,18 +3,24 @@ import './PopUp.scss';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import IconButton from "../Inputs/IconButton/IconButton";
 
-
-
+/** Props required to display a popup */
 interface Props {
+    /** The title to show in the header of the pop up */
     title:string;
+    /** The callback to use when the Close button is clicked */
     onClose: () => void
 }
 
+/** Required state for Popup */
 interface State {
     
 }
 
+/** 
+ * Component that represents a small window within the application and can contain any content
+ */
 class PopUp extends React.PureComponent<Props, State> {
+    /** @inheritdoc */
     public constructor(props: Props) {
         super(props);
         this.state = {
@@ -22,6 +28,7 @@ class PopUp extends React.PureComponent<Props, State> {
         };
     }
 
+    /** @inheritdoc */
     public render(): JSX.Element {
         return (
             <div className="popUp__background">

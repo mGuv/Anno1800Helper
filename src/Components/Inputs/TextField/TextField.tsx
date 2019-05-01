@@ -2,22 +2,30 @@ import React, { RefObject } from "react";
 import "./TextField.scss";
 import EventValue from "../../../EventValue";
 
+/** Required props to use the TextField */
 interface Props {
+    /** Optional name to display next to the input */
     name?: string;
+    /** The Event String this TextField controls */
     value: EventValue<string>;
+    /** Whether or not the field should be in focus on render */
     autoFocus?:boolean;
+    /** The placeholder text to show when there is no value */
     placeholder?:string;
 }
 
+/** Required state for the TextField */
 interface State {
+    /** The current entered value in the text box but not yet submitted */
     currentValue:string;
     focused: boolean;
 }
 
 class TextField extends React.PureComponent<Props, State> {
-
+    /** Reference to the actual Input itself for helping with controlling focus */
     private ref: RefObject<HTMLInputElement>;
 
+    /** @inheritdoc */
     public constructor(props:Props) {
         super(props);
         this.state = {
@@ -25,33 +33,39 @@ class TextField extends React.PureComponent<Props, State> {
             focused: false,
         };
 
+        // As the value can change externally, we want to ensure we stay in sync
         this.props.value.registerOnChange(this.handleValueChange);
 
         this.ref = React.createRef<HTMLInputElement>();
     }
 
+    /** Tidy up listeners on unmount */
     public componentWillUnmount = () => {
         this.props.value.deregisterOnChange(this.handleValueChange);
     }
 
+    /** Handle the Event String changing externally */
     private handleValueChange = (value:string) => {
         this.setState({
             currentValue: value
         });
     }
 
+    /** Handle a user change updating the current entered value */
     private handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             currentValue: event.target.value
         });
     }
 
+    /** Set the input as focused */
     private focus = () => {
         this.setState({
             focused: true
         });
     }
 
+    /** Set the input as unfocused */
     private blur = () => {
         this.props.value.setValue(this.state.currentValue);
         this.setState({
@@ -59,14 +73,15 @@ class TextField extends React.PureComponent<Props, State> {
         });
     }
 
+    /** Handler for when the TextField is clicked */
     private onClick = () => {
         if(this.ref.current) {
             this.ref.current.focus();
         }
     };
 
+    /** @inheritdoc */
     public render() : JSX.Element {
-
         const classes:string[] = [
             "textField__container"
         ];

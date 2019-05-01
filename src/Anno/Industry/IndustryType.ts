@@ -1,3 +1,4 @@
+/** Set of all Industry type keys */
 enum IndustryType {
     LumberjacksHut,
     Sawmill,
