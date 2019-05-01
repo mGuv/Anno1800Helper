@@ -4,13 +4,19 @@ import Pop from "./Pop";
 import ResourceType from "../Resources/ResourceType";
 import ServiceType from "../Services/ServiceType";
 
+/** High Level service for interacting with the available Pop types */
 class PopService {
 
+    /** Singleton instance of this Service */
     private static instance: PopService;
 
+    /** The look up of each Pop by Type */
     private allPops: Dictionary<PopType, Pop> = new Dictionary();
 
+    /** Creates a new Pop Service */
     private constructor() {
+        // Build a set of all the available pops
+        // TODO: Consider feeding from API
         this.allPops.Add(
             PopType.Farmer,
             {
@@ -19,7 +25,7 @@ class PopService {
                 resourceNeeds: [
                     {
                         resourceType: ResourceType.Fish,
-                        requiredForUpgrade: true,
+                        required: true,
                         popsGenerated: 3,
                         incomeGenerated: 1,
                         consumptionPerHouseholdPerSecond: 0.0004166667,
@@ -27,14 +33,14 @@ class PopService {
                     },
                     {
                         resourceType: ResourceType.WorkerClothes,
-                        requiredForUpgrade: true,
+                        required: true,
                         popsGenerated: 2,
                         incomeGenerated: 4,
                         consumptionPerHouseholdPerSecond: 0.000512821
                     },
                     {
                         resourceType: ResourceType.Schnapps,
-                        requiredForUpgrade: false,
+                        required: false,
                         popsGenerated: 0,
                         incomeGenerated: 4,
                         consumptionPerHouseholdPerSecond: 0.000555556
@@ -59,6 +65,7 @@ class PopService {
 
     }
 
+    /** Gets the singleton of this Service */
     public static Get(): PopService {
         return this.instance || (this.instance = new PopService());
     }

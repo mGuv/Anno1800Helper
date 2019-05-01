@@ -4,13 +4,20 @@ import Industry from "./Industry";
 import ResourceType from "../Resources/ResourceType";
 import PopType from "../Population/PopType";
 
+/**
+ * High level service for interacting with the available Industries in the game
+ */
 class IndustryService {
-
+    /** Singleton of the Service */
     private static instance: IndustryService;
 
+    /** A full set of every Industry available */
     private allIndustrires: Dictionary<IndustryType, Industry> = new Dictionary();
 
+    /** @inheritdoc */
     private constructor() {
+        // Create a giant set of all Industries
+        // TODO: Consider populating from API to support updates/mods/expansions/etc
         this.allIndustrires.Add(
             IndustryType.LumberjacksHut,
             {
@@ -145,7 +152,11 @@ class IndustryService {
         );
     }
 
-
+    /**
+     * Gets the instance of this service
+     * 
+     * @returns The singleton for this service
+     */
     public static Get(): IndustryService {
         return this.instance || (this.instance = new IndustryService());
     }
