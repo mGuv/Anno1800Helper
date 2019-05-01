@@ -99,7 +99,7 @@ class Header extends React.PureComponent<Props, State> {
                 { 
                     this.state.newIslandOpen && (
                         <PopUp title="Add New Island" onClose={this.closeNewIsland}>
-                            <TextField name="Name" value={this.nameValue} autoFocus={true} placeholder="New Island Name"/>
+                            <TextField name="Name" value={this.nameValue} autoFocus={true} placeholder="Island Name"/>
                             <SelectBox name="Region" options={this.islandTypes} value={this.selectedType}/>                            
                         </PopUp>
                     )
