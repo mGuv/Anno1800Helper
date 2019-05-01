@@ -1,8 +1,6 @@
 @import "../../../variables";
 
 .textField__container {
-    margin-top: 10px;
-    margin-bottom: 10px;
     display:flex;
     align-items: center;
     font-weight: 600;
@@ -32,8 +30,6 @@
         cursor: pointer;
         padding: $padding;
         padding-bottom: 5px;
-        margin-left: 10px;
-        margin-right: 10px;
 
         .textField {
             background: none;
