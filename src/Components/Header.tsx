@@ -5,9 +5,11 @@ import EventValue from '../EventValue';
 import Island from '../Anno/Island/Island';
 import IslandService from '../Anno/Island/IslandService';
 import "./Header.css";
-import SelectBox from './Inputs/SelectBox/SelectBox';
 import IconButton from './Inputs/IconButton/IconButton';
 import PopUp from './PopUp/PopUp';
+import IslandType from '../Anno/Island/IslandType';
+import TextField from './Inputs/TextField/TextField';
+import SelectBox from './Inputs/SelectBox/SelectBox';
 
 const islandService: IslandService = IslandService.Get();
 
@@ -25,12 +27,9 @@ interface State {
 
 class Header extends React.PureComponent<Props, State> {
     private ref: RefObject<HTMLDivElement>;
-    private someInput: EventValue<number> = new EventValue(0);
-    private theValue: EventValue<string> = new EventValue("Test One");
-
-    private parser = (input: string) => {
-        return Number(input);
-    };
+    private islandTypes:IslandType[] = [IslandType.OldWorld, IslandType.NewWorld];
+    private nameValue: EventValue<string> = new EventValue<string>("");
+    private selectedType: EventValue<IslandType> = new EventValue<IslandType>(IslandType.OldWorld);
 
     public constructor(props: Props) {
         super(props);
@@ -75,28 +74,14 @@ class Header extends React.PureComponent<Props, State> {
             newIslandOpen: true
         })
     };
-    
+
     private closeNewIsland = () => {
         this.setState({
             newIslandOpen: false
         });
     };
 
-    private handleTabChange = (event: React.ChangeEvent<{}>, value: number) => {
-        this.props.onTabSelected(value);
-    };
-
     public render(): JSX.Element {
-
-        const someOptions: string[] = [
-            "Test One",
-            "Test Two",
-            "Test Three"
-        ];
-
-
-
-
         return (
             <React.Fragment>
                 <div style={{ position: "fixed", width: "100%" }}>
@@ -113,7 +98,10 @@ class Header extends React.PureComponent<Props, State> {
                 <div style={{ width: "100%", height: this.state.height + "px" }}></div>
                 { 
                     this.state.newIslandOpen && (
-                        <PopUp title="Add New Island" onClose={this.closeNewIsland}>Name: <input type="text"/></PopUp>
+                        <PopUp title="Add New Island" onClose={this.closeNewIsland}>
+                            <TextField name="Name" value={this.nameValue} autoFocus={true} placeholder="New Island Name"/>
+                            <SelectBox name="Region" options={this.islandTypes} value={this.selectedType}/>                            
+                        </PopUp>
                     )
                 }
             </React.Fragment>
