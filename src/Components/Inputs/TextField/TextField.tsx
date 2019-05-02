@@ -1,9 +1,11 @@
 import React, { RefObject } from "react";
-import "./TextField.scss";
 import EventValue from "../../../EventValue";
+import "../Input.scss";
+import InputProps from "../InputProps";
+import Theme from "../Theme";
 
 /** Required props to use the TextField */
-interface Props {
+interface Props extends InputProps {
     /** Optional name to display next to the input */
     name?: string;
     /** The Event String this TextField controls */
@@ -83,23 +85,30 @@ class TextField extends React.PureComponent<Props, State> {
     /** @inheritdoc */
     public render() : JSX.Element {
         const classes:string[] = [
-            "textField__container"
+            "textField__container",
+            "input__container"
         ];
 
         if(this.state.focused) {
             classes.push("textField__container--focused");
         }
 
+        if(this.props.theme === Theme.Primary) {
+            classes.push('input__container--primary');
+        } else {
+            classes.push('input__container--default');
+        }
+
         const autoFocus:boolean = this.props.autoFocus || false;
         const placeholder:string = this.props.placeholder || "";
         const name:string = this.props.name || "";
 
-        const labelElement:JSX.Element | null = name.length > 0 ? (<div className="label">{this.props.name}: </div>) : null;
+        const labelElement:JSX.Element | null = name.length > 0 ? (<div className="input__label">{this.props.name}: </div>) : null;
 
         return (
             <div className={classes.join(" ")} onClick={this.onClick}>
                 {labelElement}
-                <div className="inputContainer">
+                <div className="input__value input__value--text">
                     <input placeholder={placeholder} autoFocus={autoFocus} ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
                 </div>
             </div>
