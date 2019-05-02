@@ -1,8 +1,7 @@
 @import "../variables.scss";
 
 .header__container {
-    background-color: $header-background-colour;
-    color: $header-text-colour;
+    background-color: $primary-background-colour;
     padding: $padding;    
     
     font-size: $font-size-large;
@@ -19,13 +18,5 @@
 
     .islandAdd {
         grid-column: span 1;
-    }
-
-    .selectBox__container {
-        .label__container{
-            &:hover {
-                background-color: $header-background-colour-highlight;
-            }
-        }
     }
 }

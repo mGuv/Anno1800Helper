@@ -1,11 +1,7 @@
-import PopService from "../../Anno/Population/PopService";
-import IndustryService from "../../Anno/Industry/IndustryService";
 import React from "react";
 import Island from "../../Anno/Island/Island";
 import IslandService from "../../Anno/Island/IslandService";
 
-const popService: PopService = PopService.Get();
-const industryService: IndustryService = IndustryService.Get();
 const islandService: IslandService = IslandService.Get();
 
 interface Props {

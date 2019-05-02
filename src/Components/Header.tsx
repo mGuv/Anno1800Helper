@@ -10,6 +10,7 @@ import PopUp from './PopUp/PopUp';
 import IslandType from '../Anno/Island/IslandType';
 import TextField from './Inputs/TextField/TextField';
 import SelectBox from './Inputs/SelectBox/SelectBox';
+import Theme from './Inputs/Theme';
 
 const islandService: IslandService = IslandService.Get();
 
@@ -87,10 +88,10 @@ class Header extends React.PureComponent<Props, State> {
                 <div style={{ position: "fixed", width: "100%" }}>
                     <div ref={this.ref} className="header__container">
                         <div className="islandSelect">
-                            <SelectBox options={this.state.islands} value={islandService.activeIsland} />
+                            <SelectBox theme={Theme.Primary} options={this.state.islands} value={islandService.activeIsland} />
                         </div>
                         <div className="islandAdd">
-                            <IconButton icon={faPlus} onClick={this.openNewIsland}/>
+                            <IconButton theme={Theme.Primary} icon={faPlus} onClick={this.openNewIsland}/>
                         </div>
                     </div>
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.growSpacer} />

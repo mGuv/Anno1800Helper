@@ -3,19 +3,6 @@ import Header from './Components/Header';
 import Demand from './Components/Demand/Demand';
 import "./App.css";
 
-// const theme: MuiTheme = getMuiTheme({
-//   palette: {
-//     primary1Color: '#19181e',
-//     borderColor: '#42413c',
-//     canvasColor: '#fce3ba',
-
-//   },
-//   appBar: {
-//     textColor: '#fcf0b4'
-//   }
-
-// });
-
 interface Props {
 
 }
