@@ -13,3 +13,19 @@
         border-bottom: none !important;
     }
 }
+
+.input__container.iconButton__container.input__container--default {
+        background-color: $background-colour-light;
+
+        &:hover {
+            background-color: $background-colour-lighter;
+        }
+}
+
+.input__container.iconButton__container.input__container--primary {
+        background-color: $primary-background-colour-light;
+
+        &:hover {
+            background-color: $primary-background-colour-lighter;
+        }
+}
