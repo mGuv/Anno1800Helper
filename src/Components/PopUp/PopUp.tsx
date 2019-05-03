@@ -2,6 +2,7 @@ import React from "react";
 import './PopUp.scss';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import IconButton from "../Inputs/IconButton/IconButton";
+import Theme from "../Inputs/Theme";
 
 /** Props required to display a popup */
 interface Props {
@@ -33,7 +34,7 @@ class PopUp extends React.PureComponent<Props, State> {
         return (
             <div className="popUp__background">
                 <div className="popUp__container">
-                    <div className="popUp__header">{this.props.title}<IconButton icon={faTimes} onClick={this.props.onClose}/> </div>
+                    <div className="popUp__header">{this.props.title}<IconButton theme={Theme.Primary} icon={faTimes} onClick={this.props.onClose}/> </div>
                     <div className="popUp__content">{this.props.children}</div>
                     <div className="popUp__footer"><div>ok</div></div>
                 </div>
