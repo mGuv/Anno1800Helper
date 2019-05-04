@@ -3,6 +3,7 @@
 .input__container {    
     display: flex;
     cursor: pointer;
+    align-items: center;
 
     &--default {
         color: $text-colour;
