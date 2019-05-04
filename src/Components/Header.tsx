@@ -21,7 +21,7 @@ interface Props {
 
 interface State {
     height: number;
-    island: Island;
+    island: Island | null;
     islands: Island[];
     newIslandOpen: boolean;
 }
@@ -58,7 +58,7 @@ class Header extends React.PureComponent<Props, State> {
         });
     };
 
-    private islandChanged = (island: Island) => {
+    private islandChanged = (island: Island | null) => {
         this.setState({
             island
         });
@@ -82,6 +82,17 @@ class Header extends React.PureComponent<Props, State> {
         });
     };
 
+    private createIsland = () => {
+        const islands:Island[] = islandService.islands.getValue();
+        const newIsland:Island = new Island(new EventValue(this.nameValue.getValue()), this.selectedType.getValue());
+        islands.push(newIsland);
+        islandService.islands.setValue(islands);
+        islandService.activeIsland.setValue(newIsland);
+        this.setState({
+            newIslandOpen: false
+        });
+    };
+
     public render(): JSX.Element {
         return (
             <React.Fragment>
@@ -99,7 +110,7 @@ class Header extends React.PureComponent<Props, State> {
                 <div style={{ width: "100%", height: this.state.height + "px" }}></div>
                 { 
                     this.state.newIslandOpen && (
-                        <PopUp title="Add New Island" onClose={this.closeNewIsland}>
+                        <PopUp title="Add New Island" onClose={this.closeNewIsland} buttons={[{name:"Create", onClick:this.createIsland}]}>
                             <TextField name="Name" value={this.nameValue} autoFocus={true} placeholder="Island Name"/>
                             <SelectBox name="Region" options={this.islandTypes} value={this.selectedType}/>                            
                         </PopUp>

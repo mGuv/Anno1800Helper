@@ -3,13 +3,15 @@ import './PopUp.scss';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import IconButton from "../Inputs/IconButton/IconButton";
 import Theme from "../Inputs/Theme";
+import Button from "../Inputs/Button/Button";
 
 /** Props required to display a popup */
 interface Props {
     /** The title to show in the header of the pop up */
     title:string;
     /** The callback to use when the Close button is clicked */
-    onClose: () => void
+    onClose: () => void;
+    buttons?: {name:string, onClick:()=>void}[]
 }
 
 /** Required state for Popup */
@@ -28,7 +30,7 @@ class PopUp extends React.PureComponent<Props, State> {
 
         };
     }
-
+    
     /** @inheritdoc */
     public render(): JSX.Element {
         return (
@@ -36,7 +38,14 @@ class PopUp extends React.PureComponent<Props, State> {
                 <div className="popUp__container">
                     <div className="popUp__header">{this.props.title}<IconButton theme={Theme.Primary} icon={faTimes} onClick={this.props.onClose}/> </div>
                     <div className="popUp__content">{this.props.children}</div>
-                    <div className="popUp__footer"><div>ok</div></div>
+                    <div className="popUp__footer">
+                    {
+                        this.props.buttons && 
+                        this.props.buttons.map((thing) => {
+                            return<Button theme={Theme.Primary} name={thing.name} onClick={thing.onClick}/>
+                        })
+                    }
+                    </div>
                 </div>
             </div>
         )

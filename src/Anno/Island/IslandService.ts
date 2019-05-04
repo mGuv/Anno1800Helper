@@ -12,27 +12,10 @@ class IslandService {
     private static instance: IslandService;
 
     /** The set of Islands this Player has */
-    public readonly islands: EventValue<Island[]> = new EventValue([
-        new Island(
-            new EventValue("New Island"),
-            IslandType.OldWorld,
-            new Dictionary<PopType, EventValue<number>>(
-                [
-                    {
-                        key: PopType.Worker,
-                        value: new EventValue(0),
-                    },
-                    {
-                        key: PopType.Farmer,
-                        value: new EventValue(0),
-                    }
-                ]
-            )
-        )
-    ]);
+    public readonly islands: EventValue<Island[]> = new EventValue<Island[]>([]);
 
     /** The watchable/editable Island that is currently selected */
-    public readonly activeIsland: EventValue<Island> = new EventValue(this.islands.getValue()[0]);
+    public readonly activeIsland: EventValue<Island | null> = new EventValue<Island | null>(null);
 
     /**
      * Gets the singleton instance of this class
