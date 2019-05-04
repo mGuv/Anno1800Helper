@@ -16,11 +16,15 @@ class ServiceService {
         // Add all services
         // TODO: consider feeding from API
         this.allServices.Add(ServiceType.Market, { serviceType: ServiceType.Market, name: "Market" });
-        this.allServices.Add(ServiceType.Pub, { serviceType: ServiceType.Pub, name: "Worker Clothes" });
+        this.allServices.Add(ServiceType.Pub, { serviceType: ServiceType.Pub, name: "Pub" });
+    }
+
+    public getService(type:ServiceType) : Service {
+        return this.allServices.Get(type);
     }
 
     /** Gets the singleton of this Service */
-    public static get Get() {
+    public static Get():ServiceService {
         return this.instance || (this.instance = new ServiceService());
     }
 }
