@@ -43,8 +43,8 @@ class Demand extends React.PureComponent<Props, State> {
                         <span>{this.state.island.name.getValue()} - Demands</span>
                         <div>
                             {
-                                this.state.island.population.All.map(kvp => {
-                                    return <PopDemand islandPop={kvp.value}/>
+                                this.state.island.population.All.map((kvp, ind) => {
+                                    return <PopDemand key={kvp.value.pop.name} islandPop={kvp.value}/>
                                 })
                             }
                         </div>
