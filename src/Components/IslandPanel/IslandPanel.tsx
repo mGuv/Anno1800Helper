@@ -5,7 +5,6 @@ import Theme from "../Inputs/Theme";
 import PopUp from "../PopUp/PopUp";
 import NumberField from "../Inputs/NumberField/NumberField";
 import Checkbox from "../Inputs/Checkbox/Checkbox";
-import ResourceType from "../../Anno/Resources/ResourceType";
 
 /** Props required to display a popup */
 interface Props {

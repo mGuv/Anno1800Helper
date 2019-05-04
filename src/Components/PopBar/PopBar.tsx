@@ -1,7 +1,4 @@
 import React from "react";
-import Button from "../Inputs/Button/Button";
-import { faTractor, faHammer, faPaintBrush } from '@fortawesome/free-solid-svg-icons';
-import Theme from "../Inputs/Theme";
 import "./PopBar.scss";
 import Island from "../../Anno/Island/Island";
 import PopType from "../../Anno/Population/PopType";
