@@ -24,7 +24,11 @@ class ResourceService {
         this.allResources.Add(ResourceType.Wool, { resourceType: ResourceType.Wool, name: "Wool" });
     }
 
-    public static get Get() {
+    public getResource(type: ResourceType): Resource {
+        return this.allResources.Get(type);
+    }
+
+    public static Get() : ResourceService {
         return this.instance || (this.instance = new ResourceService());
     }
 }
