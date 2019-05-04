@@ -20,6 +20,6 @@ Demo available at: http://anno.mguv.co.uk
 # Motivation
 The main goal of this project was to help assist with the game Anno 1800, as the game has some balancing involved about resource generation and consumption, with the numbers being hidden and difficult to align.
 
-Whilst this project could (and origanlly) was completed with just a spreadsheet, I soon wanted to be able to add more features that were slightly more complicated and realised it would make a decent little web app that others could use.
+Whilst this project could (and originally) was completed with just a spreadsheet, I soon wanted to be able to add more features that were slightly more complicated and realised it would make a decent little web app that others could use.
 
 Combined with the fact I could this project to try out some ideas in React/TypeScript, I figured why not make it?
