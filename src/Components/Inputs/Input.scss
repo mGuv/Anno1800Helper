@@ -18,6 +18,7 @@
             color: $text-colour-highlight;
             .input__value {
                 border-bottom: solid 2px $text-colour-highlight;
+                padding-bottom: $padding - 1;
                 input {
                     color: $text-colour-highlight;
                 }
@@ -29,6 +30,8 @@
     
             .input__value {
                 border-bottom: solid 2px $text-colour-focused;
+                padding-bottom: $padding - 1;
+                
                 input {
                     color: $text-colour-focused;
                 }
@@ -50,6 +53,7 @@
             color: $primary-text-colour-highlight;
             .input__value {
                 border-bottom: solid 2px $primary-text-colour-highlight;
+                padding-bottom: $padding - 1;
                 input {
                     color: $primary-text-colour-highlight;
                 }
@@ -61,6 +65,7 @@
     
             .input__value {
                 border-bottom: solid 2px $primary-text-colour-focused;
+                padding-bottom: $padding - 1;
                 input {
                     color: $primary-text-colour-focused;
                 }
