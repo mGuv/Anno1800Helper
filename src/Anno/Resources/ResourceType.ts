@@ -7,6 +7,10 @@ enum ResourceType {
     Wood,
     Timber,
     Wool,
+    Sausages,
+    Bread,
+    Soap,
+    Beer,
 }
 
 export default ResourceType;

@@ -1,7 +1,9 @@
 // Set of all Services
 enum ServiceType {
     Market,
-    Pub
+    Pub,
+    School,
+    Church
 };
 
 export default ServiceType;
