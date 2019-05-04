@@ -22,6 +22,11 @@ class ResourceService {
         this.allResources.Add(ResourceType.Timber, { resourceType: ResourceType.Timber, name: "Timber" });
         this.allResources.Add(ResourceType.Wood, { resourceType: ResourceType.Wood, name: "Wood" });
         this.allResources.Add(ResourceType.Wool, { resourceType: ResourceType.Wool, name: "Wool" });
+        this.allResources.Add(ResourceType.Sausages, { resourceType: ResourceType.Sausages, name: "Sausages" });
+        this.allResources.Add(ResourceType.Soap, { resourceType: ResourceType.Soap, name: "Soap" });
+        this.allResources.Add(ResourceType.Bread, { resourceType: ResourceType.Bread, name: "Bread" });
+        this.allResources.Add(ResourceType.Beer, { resourceType: ResourceType.Beer, name: "Beer" });
+        
     }
 
     public getResource(type: ResourceType): Resource {

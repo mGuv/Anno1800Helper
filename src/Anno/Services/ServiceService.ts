@@ -17,6 +17,8 @@ class ServiceService {
         // TODO: consider feeding from API
         this.allServices.Add(ServiceType.Market, { serviceType: ServiceType.Market, name: "Market" });
         this.allServices.Add(ServiceType.Pub, { serviceType: ServiceType.Pub, name: "Pub" });
+        this.allServices.Add(ServiceType.School, { serviceType: ServiceType.School, name: "School" });
+        this.allServices.Add(ServiceType.Church, { serviceType: ServiceType.Church, name: "Church" });
     }
 
     public getService(type:ServiceType) : Service {

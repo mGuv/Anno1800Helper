@@ -75,30 +75,58 @@ class PopService {
             PopType.Worker,
             {
                 name: "Worker",
-                popType: PopType.Farmer,
+                popType: PopType.Worker,
                 resourceNeeds: [
                     {
                         resourceType: resourceService.getResource(ResourceType.Fish),
                         required: true,
                         popsGenerated: 3,
-                        incomeGenerated: 1,
-                        consumptionPerHouseholdPerSecond: 0.0004166667,
+                        incomeGenerated: 3,
+                        consumptionPerHouseholdPerSecond: 0.0008333334,
 
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.WorkerClothes),
                         required: true,
                         popsGenerated: 2,
-                        incomeGenerated: 4,
-                        consumptionPerHouseholdPerSecond: 0.000512821
+                        incomeGenerated: 7,
+                        consumptionPerHouseholdPerSecond: 0.001025642,
+                    },
+                    {
+                        resourceType: resourceService.getResource(ResourceType.Sausages),
+                        required: true,
+                        popsGenerated: 3,
+                        incomeGenerated: 5,
+                        consumptionPerHouseholdPerSecond: 0.000333334,
+                    },
+                    {
+                        resourceType: resourceService.getResource(ResourceType.Bread),
+                        required: true,
+                        popsGenerated: 3,
+                        incomeGenerated: 5,
+                        consumptionPerHouseholdPerSecond: 0.00030303
+                    },
+                    {
+                        resourceType: resourceService.getResource(ResourceType.Soap),
+                        required: true,
+                        popsGenerated: 2,
+                        incomeGenerated: 5,
+                        consumptionPerHouseholdPerSecond: 0.000138889
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Schnapps),
                         required: false,
                         popsGenerated: 0,
-                        incomeGenerated: 4,
-                        consumptionPerHouseholdPerSecond: 0.000555556
-                    }
+                        incomeGenerated: 7,
+                        consumptionPerHouseholdPerSecond: 0.001111112
+                    },
+                    {
+                        resourceType: resourceService.getResource(ResourceType.Beer),
+                        required: true,
+                        popsGenerated: 0,
+                        incomeGenerated: 13,
+                        consumptionPerHouseholdPerSecond: 0.00025641
+                    },
                 ],
                 serviceNeeds: [
                     {
@@ -108,11 +136,26 @@ class PopService {
                         required: true
                     },
                     {
-                        incomeGenerated: 2,
+                        serviceType: serviceService.getService(ServiceType.School),
+                        popsGenerated: 2,
+                        incomeGenerated: 0,
+                        required: true,
+                    },
+                    {
+                        serviceType: serviceService.getService(ServiceType.Pub),
+                        popsGenerated: 0,
+                        incomeGenerated: 3,
+                        required: false,
+                    },
+                    {
+                        serviceType: serviceService.getService(ServiceType.Church),
+                        incomeGenerated: 0,
                         popsGenerated: 0,
                         required: false,
-                        serviceType: serviceService.getService(ServiceType.Pub)
-                    }
+                    },
+                    
+                    
+                    
                 ],
                 icon: faHammer
             }
