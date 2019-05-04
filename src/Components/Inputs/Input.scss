@@ -109,12 +109,12 @@
         }
 
         .options {
-            background-color: $background-colour;
             cursor: pointer;
             flex: 1 1 0;
             .option {
                 padding: 10px;
                 box-sizing: border-box;
+                
 
                 &:hover {
                     background-color: $background-colour-light;
@@ -125,6 +125,7 @@
                 background-color: $background-colour;
                 color: $text-colour;
                 .option {
+                    background-color: $background-colour;
                     &:hover {
                         background-color: $background-colour-light;
                         color: $text-colour-highlight;
@@ -136,6 +137,7 @@
                 background-color: $primary-background-colour;
                 color: $primary-text-colour;
                 .option {
+                    background-color: $primary-background-colour;
                     &:hover {
                         background-color: $primary-background-colour-light;
                         color: $primary-text-colour-highlight;
