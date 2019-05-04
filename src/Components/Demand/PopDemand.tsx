@@ -2,6 +2,9 @@ import IslandPop from "../../Anno/Island/IslandPop";
 import Resource from "../../Anno/Resources/Resource";
 import Dictionary from "../../Collections/Dictionary";
 import React from "react";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import Button from "../Inputs/Button/Button";
+import IconButton from "../Inputs/IconButton/IconButton";
 
 interface Props {
     islandPop: IslandPop
@@ -66,11 +69,11 @@ class PopDemand extends React.PureComponent<Props, State> {
         return (
             <React.Fragment>
             <div>{this.props.islandPop.pop.name}'s Demands</div>
-            <div style={{display:"flex", flexDirection:"column"}}>
-            <div>{this.state.housesRequired}x {this.props.islandPop.pop.name} Residence</div>
+            <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
+                <Button name={this.state.housesRequired.toString()} onClick={()=>{}} iconLeft={faHome}/>
                 {
                     this.state.demand.All.map(kvp => {
-                        return <div>{kvp.value.toFixed(2)} {kvp.key.name} per second</div>
+                        return <Button name={kvp.value.toFixed(2).toString() + "/s"} onClick={()=>{}} iconLeft={kvp.key.icon}/>
                     })
                 }
             </div>
