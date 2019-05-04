@@ -2,6 +2,10 @@ import Dictionary from "../../Collections/Dictionary";
 import PopType from "../Population/PopType";
 import EventValue from "../../EventValue";
 import IslandType from "./IslandType";
+import IslandPop from "./IslandPop";
+import PopService from "../Population/PopService";
+
+const popService:PopService = PopService.Get();
 
 /** Represents an instance of a Player's Island */
 class Island {
@@ -9,7 +13,7 @@ class Island {
     public name: EventValue<string>;
 
     /** Editable Populations of each Pop Type */
-    public population: Dictionary<PopType, EventValue<number>>;
+    public population: Dictionary<PopType, IslandPop>;
 
     /** What region the island is in */
     public islandType: IslandType;
@@ -21,13 +25,13 @@ class Island {
      * @param islandType The Region the Island is in
      * @param pops  The starting Pops of this island
      */
-    public constructor(name: EventValue<string>, islandType:IslandType, pops?: Dictionary<PopType, EventValue<number>>) {
+    public constructor(name: EventValue<string>, islandType:IslandType, pops?: Dictionary<PopType, IslandPop>) {
         this.name = name;
         this.islandType = islandType;
         if(pops === undefined) {
-            pops = new Dictionary<PopType, EventValue<number>>();
-            pops.Add(PopType.Farmer, new EventValue(0));
-            pops.Add(PopType.Worker, new EventValue(0));
+            pops = new Dictionary<PopType, IslandPop>();
+            pops.Add(PopType.Farmer, new IslandPop(popService.getPop(PopType.Farmer)));
+            pops.Add(PopType.Worker, new IslandPop(popService.getPop(PopType.Worker)));
         }
         this.population = pops;
     }
