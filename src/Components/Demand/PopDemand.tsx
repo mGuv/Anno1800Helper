@@ -27,6 +27,23 @@ class PopDemand extends React.PureComponent<Props, State> {
 
     }
 
+    public componentWillUpdate = (nextProps:Props) => {
+        if(nextProps.islandPop === this.props.islandPop) {
+            return;
+        }
+
+        this.props.islandPop.demand.deregisterOnChange(this.updateDemand);
+        this.props.islandPop.requiredHouses.deregisterOnChange(this.updateHouses);
+
+        nextProps.islandPop.demand.registerOnChange(this.updateDemand);
+        nextProps.islandPop.requiredHouses.registerOnChange(this.updateHouses);
+
+        this.setState({
+            demand: nextProps.islandPop.demand.getValue(),
+            housesRequired: nextProps.islandPop.requiredHouses.getValue(),
+        });
+    }
+
     public componentWillUnmount = () => {
         this.props.islandPop.demand.deregisterOnChange(this.updateDemand);
         this.props.islandPop.requiredHouses.deregisterOnChange(this.updateHouses);
