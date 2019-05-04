@@ -1,8 +1,5 @@
 import Island from "./Island";
 import EventValue from "../../EventValue";
-import Dictionary from "../../Collections/Dictionary";
-import PopType from "../Population/PopType";
-import IslandType from "./IslandType";
 
 /**
  * High level service for interacting with the Player's Islands

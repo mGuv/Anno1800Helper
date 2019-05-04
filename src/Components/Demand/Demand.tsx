@@ -1,6 +1,7 @@
 import React from "react";
 import Island from "../../Anno/Island/Island";
 import IslandService from "../../Anno/Island/IslandService";
+import PopDemand from "./PopDemand";
 
 const islandService: IslandService = IslandService.Get();
 
@@ -9,7 +10,7 @@ interface Props {
 }
 
 interface State {
-    island: Island | null
+    island: Island | null,
 }
 
 class Demand extends React.PureComponent<Props, State> {
@@ -38,7 +39,16 @@ class Demand extends React.PureComponent<Props, State> {
             <div>
                 {
                     this.state.island !== null &&
-                    <span>{this.state.island.name.getValue()} - Demands</span>
+                    <React.Fragment>
+                        <span>{this.state.island.name.getValue()} - Demands</span>
+                        <div>
+                            {
+                                this.state.island.population.All.map(kvp => {
+                                    return <PopDemand islandPop={kvp.value}/>
+                                })
+                            }
+                        </div>
+                    </React.Fragment>
                 }
                 {
                     this.state === null &&
