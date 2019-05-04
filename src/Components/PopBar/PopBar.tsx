@@ -5,6 +5,7 @@ import Theme from "../Inputs/Theme";
 import "./PopBar.scss";
 import Island from "../../Anno/Island/Island";
 import PopType from "../../Anno/Population/PopType";
+import IslandPanel from "../IslandPanel/IslandPanel";
 
 
 interface Props {
@@ -32,7 +33,7 @@ class PopBar extends React.Component<Props, State> {
             return;
         }
         
-        props.island.population.Get(PopType.Farmer).deregisterOnChange(this.updateFarmer);
+        props.island.population.Get(PopType.Farmer).residents.deregisterOnChange(this.updateFarmer);
     }
 
     private bind = (props:Props) => {
@@ -40,11 +41,11 @@ class PopBar extends React.Component<Props, State> {
             return;
         }
 
-        props.island.population.Get(PopType.Farmer).registerOnChange(this.updateFarmer);
+        props.island.population.Get(PopType.Farmer).residents.registerOnChange(this.updateFarmer);
 
         this.setState(
             {
-                workerPops: props.island.population.Get(PopType.Farmer).getValue()
+                workerPops: props.island.population.Get(PopType.Farmer).residents.getValue()
             }
         );
     }
@@ -73,16 +74,14 @@ class PopBar extends React.Component<Props, State> {
         if(this.props.island === null) {
             return (
                 <div className="popBar__container">
-                    <Button theme={Theme.Primary} iconLeft={faTractor} name="-" onClick={()=>{}}/>
-                    <Button theme={Theme.Primary} iconLeft={faHammer} name="-" onClick={()=>{}}/>
                 </div>
             );    
         }
 
         return (
             <div className="popBar__container">
-                <Button theme={Theme.Primary} iconLeft={faTractor} name={this.state.farmerPops.toString()} onClick={()=>{}}/>
-                <Button theme={Theme.Primary} iconLeft={faHammer} name={this.state.workerPops.toString()} onClick={()=>{}}/>
+                <IslandPanel pop = {this.props.island.population.Get(PopType.Farmer)}/>
+                <IslandPanel pop = {this.props.island.population.Get(PopType.Worker)}/>
             </div>
         );
     }

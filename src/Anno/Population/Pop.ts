@@ -1,6 +1,7 @@
 import PopType from "./PopType";
 import ResourceNeed from "./ResourceNeed";
 import ServiceNeed from "./ServiceNeed";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 /**
  * Represents the type of Reisdents in the game
@@ -17,6 +18,9 @@ interface Pop {
 
     /** The required Services utilised by this Pop */
     serviceNeeds: ServiceNeed[],
+
+    /** The icon that represents this Pop */
+    icon:IconProp,
 };
 
 export default Pop;

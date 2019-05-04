@@ -1,12 +1,12 @@
-import ResourceType from "../Resources/ResourceType";
 import Need from "./Need";
+import Resource from "../Resources/Resource";
 
 /**
  * Represents a Resource that is Needed by Pops
  */
 interface ResourceNeed extends Need {
     /** The Resource that is needed */
-    resourceType: ResourceType,
+    resourceType: Resource,
     
     /** The rate at which this Pop consumes this resource, per HOUSEHOLD per second */
     consumptionPerHouseholdPerSecond: number
