@@ -21,10 +21,15 @@ class Island {
      * @param islandType The Region the Island is in
      * @param pops  The starting Pops of this island
      */
-    public constructor(name: EventValue<string>, islandType:IslandType, pops: Dictionary<PopType, EventValue<number>>) {
+    public constructor(name: EventValue<string>, islandType:IslandType, pops?: Dictionary<PopType, EventValue<number>>) {
         this.name = name;
-        this.population = pops;
         this.islandType = islandType;
+        if(pops === undefined) {
+            pops = new Dictionary<PopType, EventValue<number>>();
+            pops.Add(PopType.Farmer, new EventValue(0));
+            pops.Add(PopType.Worker, new EventValue(0));
+        }
+        this.population = pops;
     }
 
     /**

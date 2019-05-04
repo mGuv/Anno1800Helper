@@ -119,7 +119,7 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
         }
 
 
-
+        const currentValue:string = this.state.currentValue ? this.state.currentValue.toString() : "";
 
         // Render just the selected value
         if (!this.state.isOpen) {
@@ -128,7 +128,7 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
                     <div className={classes.join(" ")}>
                         {labelElement}
                         <div className="input__value">
-                            <span className="value">{this.state.currentValue.toString()}</span>
+                            <span className="value">{currentValue}</span>
                             <span className="icon"><FontAwesomeIcon icon={faChevronDown} /></span>
                         </div>
                         <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.setWidth} />
@@ -143,7 +143,7 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
                 <div className={classes.join(" ")}>
                     {labelElement}
                     <div className="input__value" onClick={this.close}>
-                        <span className="value">{this.state.currentValue.toString()}</span>
+                        <span className="value">{currentValue}</span>
                         <span className="icon"><FontAwesomeIcon icon={faChevronDown} /></span>                    
                     </div>
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.setWidth} />

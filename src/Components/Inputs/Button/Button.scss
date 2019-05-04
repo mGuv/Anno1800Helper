@@ -1,0 +1,33 @@
+@import "../../../variables";
+
+.input__container {
+
+    .input__value--button {
+        padding: $padding;
+        border-radius: 5px;
+    }
+
+    &--default {
+        .input__value--button {
+            background-color: $background-colour;
+            color: $text-colour;
+
+            &:hover {
+                background-color: $background-colour-light;
+                color: $text-colour-highlight;
+            }
+        }
+    }
+
+    &--primary {
+        .input__value--button {
+            background-color: $primary-background-colour;
+            color: $primary-text-colour;
+
+            &:hover {
+                background-color: $primary-background-colour-light;
+                color: $primary-text-colour-highlight;
+            }
+        }
+    }
+}

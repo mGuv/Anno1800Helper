@@ -36,8 +36,12 @@
         }
 
         .popUp__footer {
-            margin: $padding;
-            border-top: 1px solid black;
+            margin-left: $padding/2;
+            margin-right: $padding/2;
+            padding: $padding;
+            border-top: 1px solid $background-colour-dark;
+            display: flex;
+            justify-content: flex-end;
         }
     }
 }

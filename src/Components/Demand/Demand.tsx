@@ -9,7 +9,7 @@ interface Props {
 }
 
 interface State {
-    island: Island
+    island: Island | null
 }
 
 class Demand extends React.PureComponent<Props, State> {
@@ -27,7 +27,7 @@ class Demand extends React.PureComponent<Props, State> {
         islandService.activeIsland.deregisterOnChange(this.updateIsland);
     };
 
-    private updateIsland = (island: Island) => {
+    private updateIsland = (island: Island | null) => {
         this.setState({
             island
         });
@@ -35,7 +35,17 @@ class Demand extends React.PureComponent<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <div>{this.state.island.name.getValue()} - Demands</div>
+            <div>
+                {
+                    this.state.island !== null &&
+                    <span>{this.state.island.name.getValue()} - Demands</span>
+                }
+                {
+                    this.state === null &&
+                    <span>No Island Selected</span>
+                }
+            </div>
+            
         );
     }
 }
