@@ -5,6 +5,17 @@
     .input__value--button {
         padding: $padding;
         border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .button__icon--left {
+            margin-right: $padding;
+        }
+
+        .button__icon--right {
+            margin-left: $padding;
+        }
     }
 
     &--default {

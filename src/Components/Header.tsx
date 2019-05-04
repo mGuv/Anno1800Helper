@@ -11,6 +11,7 @@ import IslandType from '../Anno/Island/IslandType';
 import TextField from './Inputs/TextField/TextField';
 import SelectBox from './Inputs/SelectBox/SelectBox';
 import Theme from './Inputs/Theme';
+import PopBar from './PopBar/PopBar';
 
 const islandService: IslandService = IslandService.Get();
 
@@ -104,6 +105,7 @@ class Header extends React.PureComponent<Props, State> {
                         <div className="islandAdd">
                             <IconButton theme={Theme.Primary} icon={faPlus} onClick={this.openNewIsland}/>
                         </div>
+                        <PopBar island={this.state.island}/>
                     </div>
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.growSpacer} />
                 </div>
