@@ -2,9 +2,8 @@ import IslandPop from "../../Anno/Island/IslandPop";
 import Resource from "../../Anno/Resources/Resource";
 import Dictionary from "../../Collections/Dictionary";
 import React from "react";
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import Button from "../Inputs/Button/Button";
-import IconButton from "../Inputs/IconButton/IconButton";
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import DemandIcon from "./DemandIcon";
 
 interface Props {
     islandPop: IslandPop
@@ -68,12 +67,12 @@ class PopDemand extends React.PureComponent<Props, State> {
     public render() : JSX.Element {
         return (
             <React.Fragment>
-            <div>{this.props.islandPop.pop.name}'s Demands</div>
-            <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-                <Button name={this.state.housesRequired.toString()} onClick={()=>{}} iconLeft={faHome}/>
+            <div className="demand__row">
+                <DemandIcon value={""} icon={this.props.islandPop.pop.icon}/>
+                <DemandIcon value={this.state.housesRequired.toString()} icon={faHome}/>
                 {
                     this.state.demand.All.map(kvp => {
-                        return <Button name={kvp.value.toFixed(2).toString() + "/s"} onClick={()=>{}} iconLeft={kvp.key.icon}/>
+                        return <DemandIcon value={kvp.value.toFixed(2).toString() + "/s"} icon={kvp.key.icon}/>
                     })
                 }
             </div>

@@ -1,5 +1,6 @@
 import Island from "./Island";
 import EventValue from "../../EventValue";
+import IslandTotal from "./IslandTotal";
 
 /**
  * High level service for interacting with the Player's Islands
@@ -13,6 +14,9 @@ class IslandService {
 
     /** The watchable/editable Island that is currently selected */
     public readonly activeIsland: EventValue<Island | null> = new EventValue<Island | null>(null);
+
+    /** The total demand across all the islands */
+    public readonly totalDemand: IslandTotal = new IslandTotal();
 
     /**
      * Gets the singleton instance of this class

@@ -93,6 +93,13 @@ class PopService {
                         consumptionPerHouseholdPerSecond: 0.001025642,
                     },
                     {
+                        resourceType: resourceService.getResource(ResourceType.Schnapps),
+                        required: false,
+                        popsGenerated: 0,
+                        incomeGenerated: 7,
+                        consumptionPerHouseholdPerSecond: 0.001111112
+                    },
+                    {
                         resourceType: resourceService.getResource(ResourceType.Sausages),
                         required: true,
                         popsGenerated: 3,
@@ -112,13 +119,6 @@ class PopService {
                         popsGenerated: 2,
                         incomeGenerated: 5,
                         consumptionPerHouseholdPerSecond: 0.000138889
-                    },
-                    {
-                        resourceType: resourceService.getResource(ResourceType.Schnapps),
-                        required: false,
-                        popsGenerated: 0,
-                        incomeGenerated: 7,
-                        consumptionPerHouseholdPerSecond: 0.001111112
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Beer),

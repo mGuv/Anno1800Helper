@@ -89,6 +89,7 @@ class Header extends React.PureComponent<Props, State> {
         islands.push(newIsland);
         islandService.islands.setValue(islands);
         islandService.activeIsland.setValue(newIsland);
+        islandService.totalDemand.addIsland(newIsland);
         this.setState({
             newIslandOpen: false
         });
