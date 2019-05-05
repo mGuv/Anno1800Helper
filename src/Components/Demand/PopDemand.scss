@@ -1,0 +1,34 @@
+@import "../../variables";
+
+.demand__container {
+    background-color: $primary-background-colour-light;
+
+    .demand__row {
+        display: grid;
+        grid-template-columns: 0.4fr repeat(10, 1fr);
+
+        &--total {
+            background-color: $primary-background-colour-lighter;
+            border-top: solid 1px $primary-text-colour;
+        }
+
+        .demand__unit {
+            padding:$padding;
+            color: $primary-text-colour;
+            display: flex;
+            margin-left: $padding;
+            margin-right: $padding;
+            align-items: center;
+            grid-column: span 1;
+    
+            .demand__icon {
+                margin-right: $padding;
+            }
+            
+            .demand__value {
+    
+            }
+    
+        }
+    }
+}
