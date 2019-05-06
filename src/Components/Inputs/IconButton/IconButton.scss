@@ -1,9 +1,21 @@
 @import "../../../variables";
 
-.iconButton__container {    
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+.iconButton__container {
+    
+    &--circle {
+        border-radius: 50%;
+    }
+
+    &--square {
+        border-radius: 10%;
+    }
+
+        width: 30px;
+        height: 30px;
+
+
+
+
     display: flex;
     justify-content: center;
     align-items: center;

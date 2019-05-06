@@ -27,13 +27,15 @@ Demo available at: http://anno.mguv.co.uk
 
 ## Direction
 - Full set of Residences/Needs
-- - App currently only works for Farmers, need to support all tiers
+- - App currently only works for Farmers/Workers, need to support all tiers
 - Consumption
 - - Convert Consumption units to be more friendly (I.e. per 10 minutes instead of per second)
 - - Add ability to configure the industries present on an island, including the work rate of the employees
 - - "consumption vs production" comparison, to see if the island can sell extra or needs to import more
 - Empire Summary
 - - Combined stats from accross all islands, allows a higher view of consumption rates and what materials can be imported/exported
+- Responsiveness
+- - App has been laid out with responisvenss in mind but will require some work to include media queries, find sensible limits and convert some areas to use grid to give proper control over how columns collapse in to rows.
 
 
 # Motivation

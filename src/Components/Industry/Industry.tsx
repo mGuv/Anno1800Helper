@@ -1,33 +1,55 @@
 import React from "react";
-import IndustryService from "../../Anno/Industry/IndustryService";
+import Island from "../../Anno/Island/Island";
+import IslandService from "../../Anno/Island/IslandService";
+import IndustryRow from "./IndustryRow";
 
-const industryService:IndustryService = IndustryService.Get();
+const islandService: IslandService = IslandService.Get();
 
 interface Props {
 
 }
 
 interface State {
-
+    island: Island | null,
 }
 
 class Industry extends React.PureComponent<Props, State> {
     public constructor(props:Props) {
         super(props);
-        this.state = {};
+
+        islandService.activeIsland.registerOnChange(this.updateIsland);
+
+        this.state = {
+            island: islandService.activeIsland.getValue()
+        };
+    }
+
+    public componentWillUnmount = () => {
+        islandService.activeIsland.deregisterOnChange(this.updateIsland);
+    };
+
+    private updateIsland = (island:Island | null) => {
+        this.setState({
+            island
+        });
     }
 
     public render() : JSX.Element {
+
+        if(this.state.island === null) {
+            return <div></div>;
+        }
+
         return (
             <div>
                 {
-                    industryService.All().map(industry => {
-                        return <div>{industry.name}</div>
+                    this.state.island.industry.Values.map(industry => {
+                        return <IndustryRow islandIndustry={industry} />
                     })
                 }
             </div>
         );
     }
 }
-
+    
 export default Industry;
