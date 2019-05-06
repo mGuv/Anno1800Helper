@@ -42,3 +42,8 @@ The main goal of this project was to help assist with the game Anno 1800, as the
 Whilst this project could (and originally) was completed with just a spreadsheet, I soon wanted to be able to add more features that were slightly more complicated and realised it would make a decent little web app that others could use.
 
 Combined with the fact I could this project to try out some ideas in React/TypeScript, I figured why not make it? It also got me to get my website back online and start using docker as a web host to easily encapsulate and host my app.
+
+# Findings
+- The EventValue is a very interesting concept but easy to overuse
+- - There are times I've bound to it in many sibling components to get them to redraw. It should have been a Prop and the parent of them all should have been watching for simplicity and less events.
+- - In general though, it works very well compared to relying on something like Redux which has a ton of learning overhead and confusion with state management
