@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.tabBar__container {
+    display: flex;
+    background-color: $primary-background-colour;
+    color: $primary-text-colour;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .tab__container {
+        padding: $padding;
+        width: 100%;
+        text-align: center;
+        cursor:pointer;
+
+        &--selected {
+            // border-bottom: solid 1px $primary-text-colour;
+            text-decoration: underline;
+        }
+
+        &:hover {
+            background-color: $primary-background-colour-light;
+            color: $primary-text-colour-highlight;
+        }
+    }
+}
