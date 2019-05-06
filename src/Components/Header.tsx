@@ -12,6 +12,7 @@ import TextField from './Inputs/TextField/TextField';
 import SelectBox from './Inputs/SelectBox/SelectBox';
 import Theme from './Inputs/Theme';
 import PopBar from './PopBar/PopBar';
+import TabBar from './Tabs/TabBar';
 
 const islandService: IslandService = IslandService.Get();
 
@@ -83,6 +84,10 @@ class Header extends React.PureComponent<Props, State> {
         });
     };
 
+    private selectTab = (newTab:number) => {
+       this.props.onTabSelected(newTab);
+    }
+
     private createIsland = () => {
         const islands:Island[] = islandService.islands.getValue();
         const newIsland:Island = new Island(new EventValue(this.nameValue.getValue()), this.selectedType.getValue());
@@ -108,6 +113,7 @@ class Header extends React.PureComponent<Props, State> {
                         </div>
                         <PopBar island={this.state.island}/>
                     </div>
+                    <TabBar onSelect={this.selectTab} tabs={["RESIDENTS", "INDUSTRY"]} selected={this.props.selectedTab} />
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.growSpacer} />
                 </div>
                 <div style={{ width: "100%", height: this.state.height + "px" }}></div>
