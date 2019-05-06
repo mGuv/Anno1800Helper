@@ -68,7 +68,7 @@ class PopDemand extends React.PureComponent<Props, State> {
         return (
             <React.Fragment>
             <div className="demand__row">
-                <DemandIcon value={""} icon={this.props.islandPop.pop.icon}/>
+                <DemandIcon value={this.props.islandPop.residents.getValue().toString()} icon={this.props.islandPop.pop.icon}/>
                 <DemandIcon value={this.state.housesRequired.toString()} icon={faHome}/>
                 {
                     this.state.demand.All.map(kvp => {
