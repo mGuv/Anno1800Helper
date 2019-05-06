@@ -18,11 +18,11 @@
          }
 
          @include media-down('sm') {
-            grid-template-columns: repeat(8, 1fr);        
+            grid-template-columns: repeat(6, 1fr);        
          }
 
          @include media-down('xs') {
-            grid-template-columns: repeat(6, 1fr);        
+            grid-template-columns: repeat(4, 1fr);        
          }
 
         &--total {
@@ -32,16 +32,14 @@
 
         .demand__unit {
             color: $primary-text-colour;
-            padding-top: $padding;
-            padding-bottom: $padding;
+            padding: $padding;
             display: flex;
-            margin-left: $padding;
-            margin-right: $padding;
             align-items: center;
             grid-column: span 1;
     
             .demand__icon {
                 margin-right: $padding;
+                width: 20px;
             }
             
             .demand__value {
