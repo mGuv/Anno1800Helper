@@ -152,6 +152,10 @@ class IndustryService {
         );
     }
 
+    public All():Industry[] {
+        return this.allIndustrires.Values;
+    }
+
     /**
      * Gets the instance of this service
      * 

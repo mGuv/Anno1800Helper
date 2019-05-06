@@ -4,8 +4,13 @@ import EventValue from "../../EventValue";
 import IslandType from "./IslandType";
 import IslandPop from "./IslandPop";
 import PopService from "../Population/PopService";
+import IndustryType from "../Industry/IndustryType";
+import IslandIndustry from "./IslandIndustry";
+import IndustryService from "../Industry/IndustryService";
 
 const popService:PopService = PopService.Get();
+const industryService:IndustryService = IndustryService.Get();
+
 
 /** Represents an instance of a Player's Island */
 class Island {
@@ -15,6 +20,9 @@ class Island {
     /** Editable Populations of each Pop Type */
     public population: Dictionary<PopType, IslandPop>;
 
+    /** Editable number of each Industry */
+    public industry: Dictionary<IndustryType, IslandIndustry>;
+
     /** What region the island is in */
     public islandType: IslandType;
 
@@ -23,17 +31,20 @@ class Island {
      * 
      * @param name The Name of the Island
      * @param islandType The Region the Island is in
-     * @param pops  The starting Pops of this island
      */
-    public constructor(name: EventValue<string>, islandType:IslandType, pops?: Dictionary<PopType, IslandPop>) {
+    public constructor(name: EventValue<string>, islandType:IslandType) {
         this.name = name;
         this.islandType = islandType;
-        if(pops === undefined) {
-            pops = new Dictionary<PopType, IslandPop>();
-            pops.Add(PopType.Farmer, new IslandPop(popService.getPop(PopType.Farmer)));
-            pops.Add(PopType.Worker, new IslandPop(popService.getPop(PopType.Worker)));
-        }
-        this.population = pops;
+        
+        this.population = new Dictionary();
+        this.population.Add(PopType.Farmer, new IslandPop(popService.getPop(PopType.Farmer)));
+        this.population.Add(PopType.Worker, new IslandPop(popService.getPop(PopType.Worker)));
+
+        this.industry = new Dictionary();
+        industryService.All().forEach(industry => {
+            this.industry.Add(industry.industryType, new IslandIndustry(industry));
+        });
+
     }
 
     /**

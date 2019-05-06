@@ -13,6 +13,7 @@ interface Props extends InputProps {
     icon: IconProp;
     /** The function to call when clicked */
     onClick: () => void;
+    shape?: "circle" | "square";
 }
 
 /**
@@ -40,6 +41,7 @@ class IconButton extends React.PureComponent<Props, State> {
         const classes:string[] = [
             "input__container",
             "iconButton__container",
+            "iconButton__container--" + (this.props.shape || "circle"),
         ];
 
         if(this.props.theme === Theme.Primary) {
