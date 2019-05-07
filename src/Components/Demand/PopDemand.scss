@@ -5,7 +5,25 @@
 
     .demand__row {
         display: grid;
-        grid-template-columns: 0.4fr repeat(10, 1fr);
+        @include media-down('xl') {
+            grid-template-columns: repeat(16, 1fr);        
+         }
+
+         @include media-down('lg') {
+            grid-template-columns: repeat(13, 1fr);        
+         }
+
+         @include media-down('md') {
+            grid-template-columns: repeat(10, 1fr);        
+         }
+
+         @include media-down('sm') {
+            grid-template-columns: repeat(6, 1fr);        
+         }
+
+         @include media-down('xs') {
+            grid-template-columns: repeat(4, 1fr);        
+         }
 
         &--total {
             background-color: $primary-background-colour-lighter;
@@ -13,16 +31,15 @@
         }
 
         .demand__unit {
-            padding:$padding;
             color: $primary-text-colour;
+            padding: $padding;
             display: flex;
-            margin-left: $padding;
-            margin-right: $padding;
             align-items: center;
             grid-column: span 1;
     
             .demand__icon {
                 margin-right: $padding;
+                width: 20px;
             }
             
             .demand__value {
