@@ -2,6 +2,9 @@ import React from "react";
 import Island from "../../Anno/Island/Island";
 import IslandService from "../../Anno/Island/IslandService";
 import IndustryRow from "./IndustryRow";
+import IslandIndustry from '../../Anno/Island/IslandIndustry';
+import PopUp from "../PopUp/PopUp";
+import IndustryPanel from "./IndustryPanel";
 
 const islandService: IslandService = IslandService.Get();
 
@@ -11,6 +14,7 @@ interface Props {
 
 interface State {
     island: Island | null,
+    selectedIndustry: IslandIndustry | null,
 }
 
 class Industry extends React.PureComponent<Props, State> {
@@ -20,7 +24,8 @@ class Industry extends React.PureComponent<Props, State> {
         islandService.activeIsland.registerOnChange(this.updateIsland);
 
         this.state = {
-            island: islandService.activeIsland.getValue()
+            island: islandService.activeIsland.getValue(),
+            selectedIndustry: null,
         };
     }
 
@@ -34,6 +39,18 @@ class Industry extends React.PureComponent<Props, State> {
         });
     }
 
+    private clearIndustry = () => {
+        this.setState({
+            selectedIndustry: null
+        });
+    }
+
+    private selectIndustry = (industry:IslandIndustry) => {
+        this.setState({
+            selectedIndustry: industry
+        });
+    }
+
     public render() : JSX.Element {
 
         if(this.state.island === null) {
@@ -44,8 +61,11 @@ class Industry extends React.PureComponent<Props, State> {
             <div>
                 {
                     this.state.island.industry.Values.map(industry => {
-                        return <IndustryRow islandIndustry={industry} />
+                        return <IndustryRow selectIndustry={this.selectIndustry} islandIndustry={industry}  />
                     })
+                }
+                {
+                    this.state.selectedIndustry && <IndustryPanel industry={this.state.selectedIndustry} handleClose={this.clearIndustry}/>
                 }
             </div>
         );
