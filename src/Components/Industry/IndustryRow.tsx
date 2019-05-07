@@ -6,6 +6,7 @@ import Theme from "../Inputs/Theme";
 
 interface Props {
     islandIndustry: IslandIndustry;
+    selectIndustry: (industry:IslandIndustry) => void;
 }
 
 interface State {
@@ -71,14 +72,21 @@ class IndustryRow extends React.PureComponent<Props, State> {
         this.props.islandIndustry.amount.setValue(this.props.islandIndustry.amount.getValue() + 1);
     }
 
+    private selectIndustry = () => {
+        this.props.selectIndustry(this.props.islandIndustry);
+    }
+
     public render() : JSX.Element {
         return (
-            <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
+            <div style={{display:"flex", flexDirection:"row", alignItems:"center"}} onClick={this.selectIndustry}>
                     {this.props.islandIndustry.industry.name}
-                    <IconButton theme={Theme.Primary} icon={faAngleLeft} shape="square" onClick={this.onDown}/> 
                     {this.state.amount}                 
-                    <IconButton theme={Theme.Primary} icon={faAngleRight} shape="square" onClick={this.onUp}/>
                 ({this.state.ratio * 100}%)
+                <div>
+                    {
+                        (1 / (this.props.islandIndustry.industry.productionTime / this.props.islandIndustry.workRatio.getValue()) * this.props.islandIndustry.amount.getValue()).toPrecision(2) + "/s"
+                    }
+                </div>
             </div>
         );
     }
