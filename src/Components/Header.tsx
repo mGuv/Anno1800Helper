@@ -4,7 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import EventValue from '../EventValue';
 import Island from '../Anno/Island/Island';
 import IslandService from '../Anno/Island/IslandService';
-import "./Header.css";
+import "./Header.scss";
 import IconButton from './Inputs/IconButton/IconButton';
 import PopUp from './PopUp/PopUp';
 import IslandType from '../Anno/Island/IslandType';
