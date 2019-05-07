@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Components/Header';
 import Demand from './Components/Demand/Demand';
-import "./App.css";
+import "./App.scss";
 import Industry from './Components/Industry/Industry';
 
 interface Props {
