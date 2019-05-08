@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './Components/Header';
-import Demand from './Components/Demand/Demand';
+import Header from './Components/Header/Header';
 import "./App.scss";
-import Industry from './Components/Industry/Industry';
+import Residents from './Components/Residents/Residents';
 
 interface Props {
 
@@ -33,12 +32,11 @@ class App extends React.PureComponent<Props, State> {
         <Header selectedTab={this.state.selectedTab} onTabSelected={this.handleTabChange} />
         <div className="annoHelper__contentContainer">
           {
-            this.state.selectedTab === 0 && <Demand />
+            this.state.selectedTab === 0 && <Residents/>
           }
           {
-            this.state.selectedTab === 1 && <Industry />
-          }
-          
+            this.state.selectedTab === 1 && <div> Industry </div>
+          }           
         </div>
       </div>
     );

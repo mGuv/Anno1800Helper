@@ -1,0 +1,155 @@
+@import "../../../variables";
+
+.input__container {    
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+
+    &--default {
+        color: $text-colour;
+
+        .input__value {
+            border-bottom: solid 1px $text-colour;
+            input {
+                color: $text-colour;
+            }
+        }
+        
+        &:hover {
+            color: $text-colour-highlight;
+            .input__value {
+                border-bottom: solid 2px $text-colour-highlight;
+                padding-bottom: $padding - 1;
+                input {
+                    color: $text-colour-highlight;
+                }
+            }
+        }
+
+        &--focused {
+            color: $text-colour-focused;
+    
+            .input__value {
+                border-bottom: solid 2px $text-colour-focused;
+                padding-bottom: $padding - 1;
+                
+                input {
+                    color: $text-colour-focused;
+                }
+            }
+        }
+    }
+
+    &--primary {
+        color: $primary-text-colour;
+
+        .input__value {
+            border-bottom: solid 1px $primary-text-colour;
+            input {
+                color: $primary-text-colour;
+            }
+        }
+        
+        &:hover {
+            color: $primary-text-colour-highlight;
+            .input__value {
+                border-bottom: solid 2px $primary-text-colour-highlight;
+                padding-bottom: $padding - 1;
+                input {
+                    color: $primary-text-colour-highlight;
+                }
+            }
+        }
+
+        &--focused {
+            color: $primary-text-colour-focused;
+    
+            .input__value {
+                border-bottom: solid 2px $primary-text-colour-focused;
+                padding-bottom: $padding - 1;
+                input {
+                    color: $primary-text-colour-focused;
+                }
+            }
+        }
+    }
+
+    .input__label {
+        flex: 1 1 0;
+        padding: $padding;
+    }
+
+    .input__value {
+        flex: 1 1 0;
+        padding: $padding;
+        display: flex;
+        justify-content: space-between;
+        
+        input {
+            background: none;
+            border:none;
+            font-family: $primary-font-family;
+            font-size: $font-sise-normal;
+            width: 100%;
+    
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.selectBox__container {
+    position: relative; 
+    .options__container {
+        
+        z-index: 1;
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        box-sizing: border-box;
+
+        .filler {
+            flex: 1 1 0;
+        }
+
+        .options {
+            cursor: pointer;
+            flex: 1 1 0;
+            .option {
+                padding: 10px;
+                box-sizing: border-box;
+                
+
+                &:hover {
+                    background-color: $background-colour-light;
+                }
+            }
+
+            &--default {
+                background-color: $background-colour;
+                color: $text-colour;
+                .option {
+                    background-color: $background-colour;
+                    &:hover {
+                        background-color: $background-colour-light;
+                        color: $text-colour-highlight;
+                    }
+                }
+            }
+
+            &--primary {
+                background-color: $primary-background-colour;
+                color: $primary-text-colour;
+                .option {
+                    background-color: $primary-background-colour;
+                    &:hover {
+                        background-color: $primary-background-colour-light;
+                        color: $primary-text-colour-highlight;
+                    }
+                }
+            }
+        }
+    }
+}

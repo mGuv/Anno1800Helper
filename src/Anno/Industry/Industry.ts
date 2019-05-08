@@ -30,6 +30,4 @@ interface Industry {
     requiredEmployees: Dictionary<PopType, number>,
 };
 
-
-
 export default Industry;

@@ -1,13 +1,13 @@
 /** Represents the benefits for fulling a Need  */
 interface Need {
-    /** How much the Maximum population for a given house increases by when fufilled */
+    /** How much the Maximum population for a given house increases by when fulfilled */
     popsGenerated: number,
-    
-    /** How much tax the given house pays for this Need when fufilled */
+
+    /** How much Income is generated per house when fulfilled */
     incomeGenerated: number,
 
-    /** Whether or not this Need is required before an Upgrade is available */
-    required: boolean,
+    /** Whether or not this Need is a bonus */
+    isLuxury: boolean,
 }
 
 export default Need;

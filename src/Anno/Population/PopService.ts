@@ -31,7 +31,7 @@ class PopService {
                 resourceNeeds: [
                     {
                         resourceType: resourceService.getResource(ResourceType.Fish),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 3,
                         incomeGenerated: 1,
                         consumptionPerHouseholdPerSecond: 0.0004166667,
@@ -39,14 +39,14 @@ class PopService {
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.WorkerClothes),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 2,
                         incomeGenerated: 4,
                         consumptionPerHouseholdPerSecond: 0.000512821
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Schnapps),
-                        required: false,
+                        isLuxury: true,
                         popsGenerated: 0,
                         incomeGenerated: 4,
                         consumptionPerHouseholdPerSecond: 0.000555556
@@ -58,12 +58,12 @@ class PopService {
                         serviceType: serviceService.getService(ServiceType.Market),
                         popsGenerated: 5,
                         incomeGenerated: 0,
-                        required: true
+                        isLuxury: false
                     },
                     {
                         incomeGenerated: 2,
                         popsGenerated: 0,
-                        required: false,
+                        isLuxury: true,
                         serviceType: serviceService.getService(ServiceType.Pub)
                     }
                 ],
@@ -79,7 +79,7 @@ class PopService {
                 resourceNeeds: [
                     {
                         resourceType: resourceService.getResource(ResourceType.Fish),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 3,
                         incomeGenerated: 3,
                         consumptionPerHouseholdPerSecond: 0.0008333334,
@@ -87,42 +87,42 @@ class PopService {
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.WorkerClothes),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 2,
                         incomeGenerated: 7,
                         consumptionPerHouseholdPerSecond: 0.001025642,
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Schnapps),
-                        required: false,
+                        isLuxury: true,
                         popsGenerated: 0,
                         incomeGenerated: 7,
                         consumptionPerHouseholdPerSecond: 0.001111112
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Sausages),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 3,
                         incomeGenerated: 5,
                         consumptionPerHouseholdPerSecond: 0.000333334,
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Bread),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 3,
                         incomeGenerated: 5,
                         consumptionPerHouseholdPerSecond: 0.00030303
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Soap),
-                        required: true,
+                        isLuxury: false,
                         popsGenerated: 2,
                         incomeGenerated: 5,
                         consumptionPerHouseholdPerSecond: 0.000138889
                     },
                     {
                         resourceType: resourceService.getResource(ResourceType.Beer),
-                        required: true,
+                        isLuxury: true,
                         popsGenerated: 0,
                         incomeGenerated: 13,
                         consumptionPerHouseholdPerSecond: 0.00025641
@@ -133,25 +133,25 @@ class PopService {
                         serviceType: serviceService.getService(ServiceType.Market),
                         popsGenerated: 5,
                         incomeGenerated: 0,
-                        required: true
+                        isLuxury: false
                     },
                     {
                         serviceType: serviceService.getService(ServiceType.School),
                         popsGenerated: 2,
                         incomeGenerated: 0,
-                        required: true,
+                        isLuxury: false,
                     },
                     {
                         serviceType: serviceService.getService(ServiceType.Pub),
                         popsGenerated: 0,
                         incomeGenerated: 3,
-                        required: false,
+                        isLuxury: true,
                     },
                     {
                         serviceType: serviceService.getService(ServiceType.Church),
                         incomeGenerated: 0,
                         popsGenerated: 0,
-                        required: false,
+                        isLuxury: true,
                     },
                     
                     
