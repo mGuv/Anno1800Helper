@@ -1,6 +1,9 @@
 import React from "react";
 import Island from "../../Anno/Island/Island";
-import { IslandService, IslandServiceSingleton } from "../../Services/Island/IslandService";
+import { IslandService, IslandServiceSingleton } from "../../Services/IslandService";
+import IslandList from "./IslandList";
+
+import "./Residents.scss";
 
 /** Props required for the Residents Component */
 interface Props {
@@ -46,13 +49,7 @@ class Residents extends React.PureComponent<Props, State> {
     /** @inheritdoc */
     public render():JSX.Element {
         return (
-            <div>
-                {
-                    this.state.islands.map((island) => {
-                        return <div>{island.name}</div>;
-                    })
-                }
-            </div>
+            <IslandList islands={this.state.islands}/>
         );
     }
 }

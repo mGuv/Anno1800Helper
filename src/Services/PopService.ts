@@ -1,29 +1,23 @@
-import Dictionary from "../../Collections/Dictionary";
-import PopType from "./PopType";
-import Pop from "./Pop";
-import ResourceType from "../Resources/ResourceType";
-import ServiceType from "../Services/ServiceType";
-import { faTractor, faHammer } from '@fortawesome/free-solid-svg-icons';
-import ResourceService from "../Resources/ResourceService";
-import ServiceService from "../Services/ServiceService";
+import Dictionary from "../Collections/Dictionary";
+import PopType from "../Anno/Population/PopType";
+import Pop from "../Anno/Population/Pop";
+import ResourceService from "../Anno/Resources/ResourceService";
+import ResourceType from "../Anno/Resources/ResourceType";
+import ServiceService from "../Anno/Services/ServiceService";
+import ServiceType from "../Anno/Services/ServiceType";
+import { faTractor, faHammer } from "@fortawesome/free-solid-svg-icons";
 
-const resourceService:ResourceService = ResourceService.Get();
-const serviceService:ServiceService = ServiceService.Get();
-
-/** High Level service for interacting with the available Pop types */
+/**
+ * High level Service for interacting with the games Pops
+ */
 class PopService {
-
-    /** Singleton instance of this Service */
-    private static instance: PopService;
-
-    /** The look up of each Pop by Type */
-    private allPops: Dictionary<PopType, Pop> = new Dictionary();
+    public readonly pops:Dictionary<PopType, Pop> = new Dictionary();
 
     /** Creates a new Pop Service */
-    private constructor() {
+    public constructor(resourceService:ResourceService, serviceService:ServiceService) {
         // Build a set of all the available pops
         // TODO: Consider feeding from API
-        this.allPops.Add(
+        this.pops.Add(
             PopType.Farmer,
             {
                 name: "Farmer",
@@ -71,7 +65,7 @@ class PopService {
             },
         );
 
-        this.allPops.Add(
+        this.pops.Add(
             PopType.Worker,
             {
                 name: "Worker",
@@ -162,15 +156,9 @@ class PopService {
         );
 
     }
-
-    public getPop(pop:PopType):Pop {
-        return this.allPops.Get(pop);
-    }
-
-    /** Gets the singleton of this Service */
-    public static Get(): PopService {
-        return this.instance || (this.instance = new PopService());
-    }
 }
 
-export default PopService;
+const singleton:PopService = new PopService(ResourceService.Get(), ServiceService.Get());
+
+export { PopService };
+export { singleton as PopServiceSingleton };

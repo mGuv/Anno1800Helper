@@ -8,7 +8,7 @@ class EventValue<TValue> {
     /** The currentl actual value */
     private value: TValue;
     /** The set of callbacks interested in this variable */
-    private callbacks: ((value: TValue) => void)[];
+    private callbacks: ((oldValue: TValue, newValue: TValue) => void)[];
 
     /**
      * Build a new Event Value with the given paramters
@@ -24,9 +24,10 @@ class EventValue<TValue> {
      * @param value The new value of this Event Value
      */
     public setValue(value: TValue) {
+        const oldValue: TValue = this.value;
         this.value = value;
         this.callbacks.forEach((callback) => {
-            callback(this.value);
+            callback(oldValue, this.value);
         });
     }
 
@@ -45,7 +46,7 @@ class EventValue<TValue> {
      * Registers the given callback to be triggerd when the value changes
      * @param callback The callback to register
      */
-    public registerOnChange(callback: (value: TValue) => void): void {
+    public registerOnChange(callback: (oldValue: TValue, newValue:TValue) => void): void {
         this.callbacks.push(callback);
     }
 
@@ -53,7 +54,7 @@ class EventValue<TValue> {
      * Deregisters a previouslu registered callback. Very important to remember to do when an object is leaving scope or a component unmounts.
      * @param callback The callback to deregister
      * */
-    public deregisterOnChange(callback: (value: TValue) => void): void {
+    public deregisterOnChange(callback: (oldValue: TValue, newValue:TValue) => void): void {
         this.callbacks.splice(this.callbacks.indexOf(callback), 1);
     }
 }

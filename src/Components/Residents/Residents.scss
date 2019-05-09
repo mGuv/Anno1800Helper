@@ -1,0 +1,25 @@
+@import "../../variables";
+
+.islandList__container {
+    .islandEntry__container {
+        padding: $padding;
+        background-color: $primary-background-colour-light;
+        color: $primary-text-colour;
+        cursor: pointer;
+
+        &:hover {
+            color: $primary-text-colour-highlight;
+        }
+    }
+
+    .inhabitantEntry__container {
+        padding: $padding;
+        background-color: $primary-background-colour-lighter;
+        color: $primary-text-colour;
+        cursor: pointer;
+
+        &:hover {
+            color: $primary-text-colour-highlight;
+        }
+    }
+}
