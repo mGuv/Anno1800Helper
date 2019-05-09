@@ -18,6 +18,10 @@ class Inhabitant {
      */
     public constructor(pop:Pop) {
         this.pop = pop;
+        this.pop.resourceNeeds.forEach(need => {
+            this.needFulfillment.Add(need, new EventValue<boolean>(false));
+        });
+
     }
 }
 

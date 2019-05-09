@@ -1,5 +1,6 @@
 import React from "react";
 import Inhabitant from "../../Anno/Island/Inhabitant";
+import InhabitantPopUp from "./InhabitantPopUp";
 
 /** Props required for the Residents Component */
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 interface State {
     amount:number,
     requiredHouses:number,
+    popUpOpen:boolean,
 }
 
 /**
@@ -23,6 +25,7 @@ class InhabitantEntry extends React.PureComponent<Props, State> {
         this.state = {
             amount: props.inhabitant.amount.getValue(),
             requiredHouses: props.inhabitant.requiredHouses.getValue(),
+            popUpOpen: false,
         };
 
         props.inhabitant.amount.registerOnChange(this.updateAmount);
@@ -46,12 +49,29 @@ class InhabitantEntry extends React.PureComponent<Props, State> {
         });
     }
 
+    private openPopUp = () => {
+        this.setState({
+            popUpOpen: true
+        });
+    }
+
+    private closePopUp =() => {
+        this.setState({
+            popUpOpen: false
+        });
+    }
+
     /** @inheritdoc */
     public render():JSX.Element {
         return (
-            <div className="inhabitantEntry__container">
+            <React.Fragment>
+            <div className="inhabitantEntry__container" onClick={this.openPopUp}>
                 {this.props.inhabitant.pop.name} x{this.state.amount}
             </div>
+            {
+                this.state.popUpOpen && <InhabitantPopUp onClose={this.closePopUp} inhabitant={this.props.inhabitant}  />
+            }
+            </React.Fragment>
         );
     }
 }

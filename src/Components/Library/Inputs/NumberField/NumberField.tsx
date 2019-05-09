@@ -47,9 +47,9 @@ class NumberField extends React.PureComponent<Props, State> {
     }
 
     /** Handle the Event String changing externally */
-    private handleValueChange = (value:number) => {
+    private handleValueChange = (oldValue:number, newValue:number) => {
         this.setState({
-            currentValue: value
+            currentValue: newValue
         });
     }
 

@@ -60,9 +60,9 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
     };
 
     /** Trigger for when the Value has changed (as can change externally) */
-    private handleValueChanged = (value: T) => {
+    private handleValueChanged = (oldValue: T, newValue: T) => {
         this.setState({
-            currentValue: value
+            currentValue: newValue
         });
     };
 

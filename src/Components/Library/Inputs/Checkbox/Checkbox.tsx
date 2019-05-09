@@ -29,9 +29,9 @@ class Checkbox extends React.PureComponent<Props, State> {
         this.props.value.deregisterOnChange(this.updateState);
     }
 
-    private updateState = (value:boolean) => {
+    private updateState = (oldValue:boolean, newValue:boolean) => {
         this.setState({
-            checked: value
+            checked: newValue
         });
     }
 

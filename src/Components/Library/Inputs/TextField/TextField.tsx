@@ -47,9 +47,9 @@ class TextField extends React.PureComponent<Props, State> {
     }
 
     /** Handle the Event String changing externally */
-    private handleValueChange = (value:string) => {
+    private handleValueChange = (oldValue:string, newValue:string) => {
         this.setState({
-            currentValue: value
+            currentValue: newValue
         });
     }
 
