@@ -2,18 +2,18 @@ import React from "react";
 import Island from "../../Anno/Island/Island";
 import InhabitantEntry from "./InhabitantEntry";
 
-/** Props required for the Residents Component */
+/** Props required for the Island Row Component */
 interface Props {
     island: Island
 }
 
-/** State required by the Residents Component */
+/** State required by the Island Row Component */
 interface State {
     isOpen: boolean
 }
 
 /**
- * Component to represent all the Residents in the Empire
+ * Component to represent a single island from the Resident list
  */
 class IslandEntry extends React.PureComponent<Props, State> {
     /** @inheritdoc */

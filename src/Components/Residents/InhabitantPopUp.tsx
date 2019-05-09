@@ -4,18 +4,18 @@ import PopUp from "../Library/PopUp/PopUp";
 import NumberField from "../Library/Inputs/NumberField/NumberField";
 import Checkbox from "../Library/Inputs/Checkbox/Checkbox";
 
-/** Props required for the Residents Component */
+/** Props required for the Edit Inhabitant Component */
 interface Props {
     onClose: () => void,
     inhabitant: Inhabitant
 }
 
-/** State required by the Residents Component */
+/** State required by the Edit Inhabitant Component */
 interface State {
 }
 
 /**
- * Component to represent all the Residents in the Empire
+ * Component to allow the User to edit their island's inhabitant
  */
 class InhabitantPopUp extends React.PureComponent<Props, State> {
     /** @inheritdoc */
@@ -33,8 +33,13 @@ class InhabitantPopUp extends React.PureComponent<Props, State> {
             <PopUp title={this.props.inhabitant.pop.name} onClose={this.props.onClose}>
                 <NumberField value={this.props.inhabitant.amount} name={"Inhabitants"}/>
                 {
-                    this.props.inhabitant.needFulfillment.All.map(kvp =>{
-                        return <Checkbox label="Test" value={kvp.value}/>
+                    this.props.inhabitant.suppliedResources.All.map(kvp =>{
+                        return <Checkbox label={kvp.key.resourceType.name} value={kvp.value}/>
+                    })
+                }
+                {
+                    this.props.inhabitant.suppliedServices.All.map(kvp =>{
+                        return <Checkbox label={kvp.key.serviceType.name} value={kvp.value}/>
                     })
                 }
             </PopUp>
