@@ -31,7 +31,7 @@ class InhabitantPopUp extends React.PureComponent<Props, State> {
     public render():JSX.Element {
         return (
             <PopUp title={this.props.inhabitant.pop.name} onClose={this.props.onClose}>
-                <NumberField value={this.props.inhabitant.amount} name={"Inhabitants"}/>
+                <NumberField autoFocus={true} value={this.props.inhabitant.amount} name={"Inhabitants"}/>
                 {
                     this.props.inhabitant.suppliedResources.All.map(kvp =>{
                         return <Checkbox label={kvp.key.resourceType.name} value={kvp.value}/>

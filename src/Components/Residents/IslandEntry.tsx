@@ -1,6 +1,8 @@
 import React from "react";
 import Island from "../../Anno/Island/Island";
 import InhabitantEntry from "./InhabitantEntry";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 /** Props required for the Island Row Component */
 interface Props {
@@ -40,7 +42,8 @@ class IslandEntry extends React.PureComponent<Props, State> {
         return (
             <React.Fragment>
             <div onClick={this.toggle} className="islandEntry__container">
-                { this.props.island.name }
+                <span>{ this.props.island.name }</span>
+                <FontAwesomeIcon icon={this.state.isOpen ? faAngleUp : faAngleDown} />
             </div>
             {
                 this.state.isOpen && 
