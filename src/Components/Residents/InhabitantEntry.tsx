@@ -66,7 +66,7 @@ class InhabitantEntry extends React.PureComponent<Props, State> {
         return (
             <React.Fragment>
             <div className="inhabitantEntry__container" onClick={this.openPopUp}>
-                {this.props.inhabitant.pop.name} x{this.state.amount}
+                {this.props.inhabitant.pop.name} x{this.state.amount} houses: {this.state.requiredHouses}
             </div>
             {
                 this.state.popUpOpen && <InhabitantPopUp onClose={this.closePopUp} inhabitant={this.props.inhabitant}  />

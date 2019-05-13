@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Components/Header/Header';
 import "./App.scss";
 import Residents from './Components/Residents/Residents';
+import DemandTab from './Components/DemandTab/DemanTab';
 
 interface Props {
 
@@ -36,7 +37,10 @@ class App extends React.PureComponent<Props, State> {
           }
           {
             this.state.selectedTab === 1 && <div> Industry </div>
-          }           
+          }
+          {
+            this.state.selectedTab === 2 && <DemandTab/>
+          }
         </div>
       </div>
     );

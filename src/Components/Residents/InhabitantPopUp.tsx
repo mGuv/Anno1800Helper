@@ -33,7 +33,7 @@ class InhabitantPopUp extends React.PureComponent<Props, State> {
             <PopUp title={this.props.inhabitant.pop.name} onClose={this.props.onClose}>
                 <NumberField value={this.props.inhabitant.amount} name={"Inhabitants"}/>
                 {
-                    this.props.inhabitant.needFulfillment.All.map(kvp =>{
+                    this.props.inhabitant.resourceFulfillment.All.map(kvp =>{
                         return <Checkbox label="Test" value={kvp.value}/>
                     })
                 }
