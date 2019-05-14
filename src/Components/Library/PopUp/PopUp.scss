@@ -33,6 +33,7 @@
         .popUp__content {
             padding: $padding;
             flex: auto;
+            overflow: auto;
         }
 
         .popUp__footer {

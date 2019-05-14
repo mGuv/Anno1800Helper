@@ -32,29 +32,42 @@ class InhabitantEntry extends React.PureComponent<Props, State> {
         props.inhabitant.requiredHouses.registerOnChange(this.updateRequiredHouses);
     }
 
+    /** @inheritdoc */
     public componentWillUnmount= () => {
         this.props.inhabitant.amount.deregisterOnChange(this.updateAmount);
         this.props.inhabitant.requiredHouses.deregisterOnChange(this.updateAmount);
     }
 
+    /**
+     * Handle the Amount of this Inhabitant changing
+     */
     private updateAmount = (oldValue:number, newValue:number) => {
         this.setState({
             amount: newValue
         });
     }
 
+    /**
+     * Handle the Amount of the required houses changing
+     */
     private updateRequiredHouses = (oldValue:number, newValue:number) => {
         this.setState({
             requiredHouses: newValue
         });
     }
 
+    /**
+     * Opens the edit pop up
+     */
     private openPopUp = () => {
         this.setState({
             popUpOpen: true
         });
     }
 
+    /**
+     * Closes the edit pop up
+     */
     private closePopUp =() => {
         this.setState({
             popUpOpen: false
@@ -66,7 +79,7 @@ class InhabitantEntry extends React.PureComponent<Props, State> {
         return (
             <React.Fragment>
             <div className="inhabitantEntry__container" onClick={this.openPopUp}>
-                {this.props.inhabitant.pop.name} x{this.state.amount} houses: {this.state.requiredHouses}
+                {this.props.inhabitant.pop.name} x{this.state.amount} in {this.state.requiredHouses} houses
             </div>
             {
                 this.state.popUpOpen && <InhabitantPopUp onClose={this.closePopUp} inhabitant={this.props.inhabitant}  />

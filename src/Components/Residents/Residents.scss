@@ -6,6 +6,9 @@
         background-color: $primary-background-colour-light;
         color: $primary-text-colour;
         cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         &:hover {
             color: $primary-text-colour-highlight;

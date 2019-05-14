@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React, { RefObject, KeyboardEvent } from "react";
 import EventValue from "../../../../EventValue";
 import "../Input.scss";
 import InputProps from "../InputProps";
@@ -82,6 +82,22 @@ class TextField extends React.PureComponent<Props, State> {
         }
     };
 
+    /** Handle key events */
+    private onKeyDown = (event:KeyboardEvent<HTMLInputElement>) => {
+        if(event.keyCode !== 13) {
+            return;
+        }
+
+        this.props.value.setValue(this.state.currentValue);
+        this.setState({
+            focused:false
+        });
+        
+        if(this.ref.current) {
+            this.ref.current.blur();
+        }
+    };
+
     /** @inheritdoc */
     public render() : JSX.Element {
         const classes:string[] = [
@@ -109,7 +125,7 @@ class TextField extends React.PureComponent<Props, State> {
             <div className={classes.join(" ")} onClick={this.onClick}>
                 {labelElement}
                 <div className="input__value input__value--text">
-                    <input placeholder={placeholder} autoFocus={autoFocus} ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange}/>
+                    <input placeholder={placeholder} autoFocus={autoFocus} ref={this.ref} onFocus={this.focus} onBlur={this.blur} className="textField" type="text" value={this.state.currentValue} onChange={this.handleChange} onKeyDown={this.onKeyDown}/>
                 </div>
             </div>
         );

@@ -12,7 +12,7 @@ interface State {
 }
 
 /**
- * Component to represent all the Residents in the Empire
+ * Component to represent all the Island + Residents
  */
 class IslandList extends React.PureComponent<Props, State> {
     /** @inheritdoc */
