@@ -1,8 +1,8 @@
 import IndustryType from "./IndustryType";
-import ResourceType from "../Resources/ResourceType";
 import Produce from "./Produce";
 import PopType from "../Population/PopType";
 import Dictionary from "../../Collections/Dictionary";
+import Resource from "../Resources/Resource";
 
 /**
  * Represents a Building in Anno that is built to offer a service/resource
@@ -21,7 +21,7 @@ interface Industry {
     productionTime: number,
 
     /** The required resources to start the production cycle*/
-    resources: ResourceType[],
+    resources: Resource[],
 
     /** How much coin this Industry costs to run */
     runningCost: number,

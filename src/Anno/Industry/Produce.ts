@@ -1,9 +1,9 @@
-import ResourceType from "../Resources/ResourceType";
+import Resource from "../Resources/Resource";
 
 /** The output of an Industry */
 interface Produce {
     /** The Resource the Industry created */
-    resourceType: ResourceType,
+    resource: Resource,
 
     /** How many of that Resource are created */
     amount: number,

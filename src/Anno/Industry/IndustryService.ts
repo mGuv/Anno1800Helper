@@ -3,6 +3,9 @@ import IndustryType from "./IndustryType";
 import Industry from "./Industry";
 import ResourceType from "../Resources/ResourceType";
 import PopType from "../Population/PopType";
+import ResourceService from "../Resources/ResourceService";
+
+const resourceService:ResourceService = ResourceService.Get();
 
 /**
  * High level service for interacting with the available Industries in the game
@@ -26,7 +29,7 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Wood,
+                        resource: resourceService.getResource(ResourceType.Wood),
                         storage: 8,
                     }
                 ],
@@ -45,12 +48,12 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Timber,
+                        resource: resourceService.getResource(ResourceType.Timber),
                         storage: 8,
                     }
                 ],
                 productionTime: 15,
-                resources: [ResourceType.Wood],
+                resources: [resourceService.getResource(ResourceType.Wood)],
                 runningCost: 10,
                 requiredEmployees: new Dictionary<PopType, number>([{ key: PopType.Farmer, value: 10 }]),
             }
@@ -64,7 +67,7 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Fish,
+                        resource: resourceService.getResource(ResourceType.Fish),
                         storage: 4,
                     }
                 ],
@@ -83,7 +86,7 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Potatoes,
+                        resource: resourceService.getResource(ResourceType.Potatoes),
                         storage: 4,
                     }
                 ],
@@ -102,13 +105,13 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Schnapps,
+                        resource: resourceService.getResource(ResourceType.Schnapps),
                         storage: 4,
                     }
                 ],
                 productionTime: 30,
                 requiredEmployees: new Dictionary<PopType, number>([{ key: PopType.Farmer, value: 50 }]),
-                resources: [ResourceType.Potatoes],
+                resources: [resourceService.getResource(ResourceType.Potatoes)],
                 runningCost: 40
             }
         );
@@ -121,7 +124,7 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.Wool,
+                        resource: resourceService.getResource(ResourceType.Wool),
                         storage: 4,
                     }
                 ],
@@ -140,17 +143,21 @@ class IndustryService {
                 produces: [
                     {
                         amount: 1,
-                        resourceType: ResourceType.WorkerClothes,
+                        resource: resourceService.getResource(ResourceType.WorkerClothes),
                         storage: 4,
                     }
                 ],
                 productionTime: 30,
                 requiredEmployees: new Dictionary<PopType, number>([{ key: PopType.Farmer, value: 50 }]),
-                resources: [ResourceType.Wool],
+                resources: [resourceService.getResource(ResourceType.Wool)],
                 runningCost: 50
             }
         );
     }
+
+    public Get = (industryType:IndustryType) => {
+        return this.allIndustrires.Get(industryType);
+    } 
 
     public All():Industry[] {
         return this.allIndustrires.Values;
@@ -166,4 +173,4 @@ class IndustryService {
     }
 }
 
-export default IndustryService;
+export default IndustryService; 
