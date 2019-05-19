@@ -17,7 +17,7 @@ interface State {
 /**
  * Component to represent all the Residents in the Empire
  */
-class DemandTab extends React.PureComponent<Props, State> {
+class SupplyTab extends React.PureComponent<Props, State> {
     private islandService:IslandService = IslandServiceSingleton;
 
     /** @inheritdoc */
@@ -53,4 +53,4 @@ class DemandTab extends React.PureComponent<Props, State> {
     }
 }
 
-export default DemandTab;
+export default SupplyTab;

@@ -1,5 +1,5 @@
 import React from "react";
-import Inhabitant from "../../Anno/Island/Inhabitant";
+import Inhabitant from "../../../Anno/Island/Inhabitant";
 import InhabitantPopUp from "./InhabitantPopUp";
 
 /** Props required for the Residents Component */

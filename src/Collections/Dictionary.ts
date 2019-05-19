@@ -98,8 +98,8 @@ class Dictionary<TKey, TValue>
     public Clone(): Dictionary<TKey, TValue> {
         const clone: Dictionary<TKey, TValue> = new Dictionary();
 
-        this.All.forEach(({ key, value }) => {
-            clone.Add(key, value);
+        this.Keys.forEach(key => {
+            clone.Add(key, this.Get(key));
         });
 
         return clone;

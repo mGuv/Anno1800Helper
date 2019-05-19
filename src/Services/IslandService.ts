@@ -13,10 +13,10 @@ class IslandService {
 const singleton:IslandService = new IslandService();
 
 singleton.Islands.setValue([
-    new Island("Island One", Region.OldWorld),
-    new Island("Island Two", Region.OldWorld),
-    new Island("Island Three", Region.OldWorld),
-    new Island("New World", Region.NewWorld),
+    new Island("1", "Island One", Region.OldWorld),
+    new Island("2", "Island Two", Region.OldWorld),
+    new Island("3", "Island Three", Region.OldWorld),
+    new Island("4", "New World", Region.NewWorld),
 ]);
 
 export { IslandService };

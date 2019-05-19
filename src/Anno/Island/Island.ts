@@ -19,6 +19,8 @@ class Island {
     /** The island's name */
     public readonly name: string;
 
+    public readonly id: string;
+
     /** What region the island is in */
     public readonly islandType: Region;
 
@@ -39,7 +41,8 @@ class Island {
      * @param name The Name of the Island
      * @param islandType The Region the Island is in
      */
-    public constructor(name: string, islandType:IslandType) {
+    public constructor(id:string, name: string, islandType:IslandType) {
+        this.id = id;
         this.name = name;
         this.islandType = islandType;
 

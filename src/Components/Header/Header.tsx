@@ -42,7 +42,7 @@ class Header extends React.PureComponent<Props, State> {
                     <div ref={this.ref} className="header__container">
                         Header
                     </div>
-                    <TabBar onSelect={this.selectTab} tabs={["RESIDENTS", "INDUSTRY", "DEMAND"]} selected={this.props.selectedTab} />
+                    <TabBar onSelect={this.selectTab} tabs={["RESIDENTS", "INDUSTRY", "DEMAND", "SUPPLY"]} selected={this.props.selectedTab} />
                     <ReactResizeDetector handleWidth={true} handleHeight={true} onResize={this.growSpacer} />
                 </div>
                 <div style={{ width: "100%", height: this.state.height + "px" }}></div>

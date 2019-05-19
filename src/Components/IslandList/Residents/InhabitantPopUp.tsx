@@ -1,8 +1,8 @@
 import React from "react";
-import Inhabitant from "../../Anno/Island/Inhabitant";
-import PopUp from "../Library/PopUp/PopUp";
-import NumberField from "../Library/Inputs/NumberField/NumberField";
-import Checkbox from "../Library/Inputs/Checkbox/Checkbox";
+import Inhabitant from "../../../Anno/Island/Inhabitant";
+import PopUp from "../../Library/PopUp/PopUp";
+import NumberField from "../../Library/Inputs/NumberField/NumberField";
+import Checkbox from "../../Library/Inputs/Checkbox/Checkbox";
 
 /** Props required for the Edit Inhabitant Component */
 interface Props {
