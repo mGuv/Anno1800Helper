@@ -42,8 +42,8 @@ class IslandEntry extends React.PureComponent<Props, State> {
         return (
             <>
                 <div onClick={this.toggle} className="islandEntry__container">
-                    {this.props.island.name} {<this.props.islandHeader island={this.props.island} />}
-                    <FontAwesomeIcon icon={icon}/>
+                    <div className="islandEntry__headerContent">{<this.props.islandHeader island={this.props.island} />}</div>
+                    <div className="islandEntry__headerIcon"><FontAwesomeIcon icon={icon}/></div>
                 </div>
                 <div className="islandEntry__body">
                 {

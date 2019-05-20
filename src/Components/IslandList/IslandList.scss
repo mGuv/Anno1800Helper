@@ -3,7 +3,7 @@
 .islandList__container {
     .islandEntry__container {
         padding: $padding;
-        background-color: $primary-background-colour-light;
+        background-color: $primary-background-colour;
         color: $primary-text-colour;
         cursor: pointer;
         display: flex;
@@ -12,6 +12,31 @@
 
         &:hover {
             color: $primary-text-colour-highlight;
+            background-color: $primary-background-colour-light;
+
         }
+
+        .islandEntry__headerContent {
+            width: 100%;
+        }
+    }
+}
+
+.islandResidents__header {
+    display: flex;
+    width: 100%;
+
+    div {
+        padding: $padding;
+    }
+}
+
+.inhabitantEntry__body {
+    padding: $padding;
+    background-color: $primary-background-colour-lighter;
+    color: $primary-text-colour;
+    display: flex;
+    div {
+        padding: $padding;
     }
 }

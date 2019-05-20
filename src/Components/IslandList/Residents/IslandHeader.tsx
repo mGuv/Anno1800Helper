@@ -28,13 +28,14 @@ class IslandHeader extends React.PureComponent<Props, State> {
     /** @inheritdoc */
     public render():JSX.Element {
         return (
-            <>
+            <div className="islandResidents__header">
                {
                    this.props.island.inhabitants.map(inhabitant => {
                         return <InhabitantHeader inhabitant={inhabitant}/>
                    })
                }
-            </>
+               <div>{this.props.island.name}</div>
+            </div>
         );
     }
 }
