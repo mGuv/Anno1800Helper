@@ -23,7 +23,10 @@
     "react-scripts": "3.2.0",
     "typescript": "3.6.3"
   },
-  "scripts": {
+  "resolutions": {
+    "set-value": "^2.0.1"
+  },
+    "scripts": {
     "start": "npm-run-all -p watch:css start:js",
     "build:css": "node-sass src -o src --recursive --quiet",
     "watch:css": "yarn build:css && node-sass src -o src --recursive --watch --quiet",
