@@ -1,7 +1,5 @@
 # Anno1800Helper
-Yet another Anno1800Helper to help manage your Islands in Anno 1800
-
-Demo available at: http://anno.mguv.co.uk
+Yet another (unfinished) Anno1800Helper to help manage your Islands in Anno 1800
 
 
 ## Installation
@@ -46,6 +44,8 @@ Whilst this project could (and originally) was completed with just a spreadsheet
 Combined with the fact I could this project to try out some ideas in React/TypeScript, I figured why not make it? It also got me to get my website back online and start using docker as a web host to easily encapsulate and host my app.
 
 # Findings
+The project ran its course and fizzled out when my desire to play Anno 1800 diminished. It was a valuable learning experience though and added some React ideas to my toolbelt.
+
 - The EventValue is a very interesting concept but easy to overuse
 - - There are times I've bound to it in many sibling components to get them to redraw. It should have been a Prop and the parent of them all should have been watching for simplicity and less events.
 - - In general though, it works very well compared to relying on something like Redux which has a ton of learning overhead and confusion with state management
