@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactResizeDetector from 'react-resize-detector';
 import InputProps from "../InputProps";
 import Theme from "../Theme";
+import { object } from "prop-types";
 
 /**
  * Required Props to use the Select Box
@@ -118,8 +119,12 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
             options.push("options--default");
         }
 
+        let currentValue:string = "";
 
-        const currentValue:string = this.state.currentValue ? this.state.currentValue.toString() : "";
+        if(this.state.currentValue) {
+            const asObject:Object = this.state.currentValue as Object;
+            currentValue = asObject.toString();
+        }
 
         // Render just the selected value
         if (!this.state.isOpen) {
@@ -153,7 +158,8 @@ class SelectBox<T> extends React.PureComponent<Props<T>, State<T>> {
                     <div className={options.join(" ")}>
                     {
                         this.props.options.map((value) => {
-                            return <div className="option" key={value.toString()} onClick={() => { this.select(value) }}>{value.toString()}</div>;
+                            const asObject:Object = value as Object;
+                            return <div className="option" key={asObject.toString()} onClick={() => { this.select(value) }}>{asObject.toString()}</div>;
                         })
                     }
                     </div>
